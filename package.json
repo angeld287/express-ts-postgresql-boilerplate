@@ -2,10 +2,11 @@
   "name": "web_service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/Server.ts",
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "start": "ts-node src/Server.ts",
     "dev": "nodemon --exec ts-node src/server.ts",
+    "dev2": "tsc --project './tsconfig.json' --watch & NODE_ENV=development nodemon",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
