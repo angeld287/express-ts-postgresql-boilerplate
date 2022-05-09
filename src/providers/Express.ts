@@ -6,6 +6,8 @@
 
 import * as express from 'express';
 import Locals from './Locals';
+import Routes from './Routes';
+import Bootstrap from '../middlewares/Kernel';
 
 class Express {
     /**
@@ -18,6 +20,24 @@ class Express {
      */
     constructor() {
         this.express = express();
+
+        this.mountMiddlewares();
+        this.mountRoutes();
+    }
+
+    /**
+     * Mounts all the defined middlewares
+     */
+    private mountMiddlewares(): void {
+        this.express = Bootstrap.init(this.express);
+    }
+
+    /**
+     * Mounts all the defined routes
+     */
+    private mountRoutes(): void {
+        //this.express = Routes.mountWeb(this.express);
+        this.express = Routes.mountApi(this.express);
     }
 
     /**

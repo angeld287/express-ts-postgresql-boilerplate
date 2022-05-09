@@ -9,11 +9,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const App_1 = require("./providers/App");
-function data() {
-    return __awaiter(this, void 0, void 0, function* () {
-        App_1.default.loadServer();
-    });
+const jwt = require("jsonwebtoken");
+class Tokens {
+    /*
+    * Generate the token for logins with email and password
+    * @param _email: user email
+    * @param _password: user hashed password
+    * @param secretKey: sistem secret key for sign tokens
+    * @return a string with a token.
+    */
+    static signEmailPasswordToken(_email, _password, secretKey) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield jwt.sign({ email: _email, password: _password, date: (new Date()).valueOf() }, secretKey);
+            }
+            catch (error) {
+                return false;
+            }
+        });
+    }
 }
-data();
-//# sourceMappingURL=Server.js.map
+exports.default = Tokens;
+//# sourceMappingURL=Hashes.js.map

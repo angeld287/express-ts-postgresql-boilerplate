@@ -7,12 +7,29 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const Locals_1 = require("./Locals");
+const Routes_1 = require("./Routes");
+const Kernel_1 = require("../middlewares/Kernel");
 class Express {
     /**
      * Initializes the express server
      */
     constructor() {
         this.express = express();
+        this.mountMiddlewares();
+        this.mountRoutes();
+    }
+    /**
+     * Mounts all the defined middlewares
+     */
+    mountMiddlewares() {
+        this.express = Kernel_1.default.init(this.express);
+    }
+    /**
+     * Mounts all the defined routes
+     */
+    mountRoutes() {
+        //this.express = Routes.mountWeb(this.express);
+        this.express = Routes_1.default.mountApi(this.express);
     }
     /**
      * Starts the express server

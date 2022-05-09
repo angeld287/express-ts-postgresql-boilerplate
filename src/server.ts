@@ -1,3 +1,7 @@
 import App from './providers/App'
 
-App.loadServer();
+async function data() {
+    App.loadServer();
+}
+
+data()
