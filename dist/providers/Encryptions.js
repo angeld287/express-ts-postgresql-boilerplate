@@ -1,4 +1,9 @@
 "use strict";
+/**
+ * Class for encriptions and hash methods
+ *
+ * @author Angel Angeles <aangeles@litystyles.com>
+ */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -25,7 +30,7 @@ class Encryptions {
                 return yield jwt.sign({ email: _email, password: _password, date: (new Date()).valueOf() }, secretKey);
             }
             catch (error) {
-                return false;
+                throw new Error(error);
             }
         });
     }
@@ -35,7 +40,12 @@ class Encryptions {
     * @return a string with a hashed password.
     */
     static hash(password) {
-        return (0, crypto_1.createHash)('sha256').update(password).digest('hex');
+        try {
+            return (0, crypto_1.createHash)('sha256').update(password).digest('hex');
+        }
+        catch (error) {
+            throw new Error(error.message);
+        }
     }
 }
 exports.default = Encryptions;

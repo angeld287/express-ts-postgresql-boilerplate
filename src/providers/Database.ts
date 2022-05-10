@@ -21,10 +21,10 @@ class Database {
     * @param sql: the query for store data
     * @return result
     */
-    public async sqlToDB(sql) {
+    public async sqlToDB(inputObject: Object): Promise<any> {
         //logger.debug(`sqlToDB() sql: ${sql} | data: ${data}`);
         try {
-            let result = await this.DbPool.query(sql);
+            let result = await this.DbPool.query(inputObject);
             return result;
         } catch (error) {
             throw new Error(error.message);
@@ -68,10 +68,10 @@ class Database {
     * @param data: the data to be stored
     * @return result
     */
-    public async sqlExecSingleRow(client, sql, data) {
+    public async sqlExecSingleRow(client, inputObject: Object): Promise<any> {
         //logger.debug(`sqlExecSingleRow() sql: ${sql} | data: ${data}`);
         try {
-            let result = await client.query(sql, data);
+            let result = await client.query(inputObject);
             //logger.debug(`sqlExecSingleRow(): ${result.command} | ${result.rowCount}`);
             return result
         } catch (error) {
@@ -108,7 +108,7 @@ class Database {
     /*
     * Rollback transaction
     */
-    public async rollback(client) {
+    public async rollback(client): Promise<void> {
         if (typeof client !== 'undefined' && client) {
             try {
                 //logger.info(`sql transaction rollback`);
@@ -126,7 +126,7 @@ class Database {
     /*
     * Commit transaction
     */
-    public async commit(client) {
+    public async commit(client): Promise<void> {
         try {
             await client.query('COMMIT');
         } catch (error) {

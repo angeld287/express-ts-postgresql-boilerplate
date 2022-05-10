@@ -20,32 +20,39 @@ const express_validator_1 = require("express-validator");
 class Login {
     static perform(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const errors = (0, express_validator_1.validationResult)(req);
-            if (!errors.isEmpty()) {
+            try {
+                const errors = (0, express_validator_1.validationResult)(req);
+                if (!errors.isEmpty()) {
+                    return res.json({
+                        errors: errors.array()
+                    });
+                }
+                const _username = req.body.username.toLowerCase();
+                const _password = Encryptions_1.default.hash(req.body.password);
+                const _user = yield userService_1.default.validateUser(_username, _password);
+                if (_user === false) {
+                    return res.json({
+                        error: true,
+                        message: 'Invalid Username or Password',
+                    });
+                }
+                const token = yield Encryptions_1.default.signEmailPasswordToken(_username, _password, res.locals.app.appSecret);
+                if (token === false) {
+                    return res.json({
+                        error: true,
+                        token: 'An error was occurred while generating the user token',
+                    });
+                }
                 return res.json({
-                    errors: errors.array()
+                    _user,
+                    token,
                 });
             }
-            const _username = req.body.username.toLowerCase();
-            const _password = Encryptions_1.default.hash(req.body.password);
-            const _user = yield userService_1.default.validateUser(_username, _password);
-            if (_user === false) {
-                return res.json({
-                    error: true,
-                    message: 'Invalid User Login or PAssword',
+            catch (error) {
+                return res.status(500).json({
+                    error: 'Internal Server Error',
                 });
             }
-            const token = yield Encryptions_1.default.signEmailPasswordToken(_username, _password, res.locals.app.appSecret);
-            if (token === false) {
-                return res.json({
-                    error: true,
-                    token: 'An error was occurred while generating the user token',
-                });
-            }
-            return res.json({
-                _user,
-                token,
-            });
         });
     }
 }

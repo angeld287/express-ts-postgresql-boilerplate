@@ -25,11 +25,11 @@ class Database {
     * @param sql: the query for store data
     * @return result
     */
-    sqlToDB(sql) {
+    sqlToDB(inputObject) {
         return __awaiter(this, void 0, void 0, function* () {
             //logger.debug(`sqlToDB() sql: ${sql} | data: ${data}`);
             try {
-                let result = yield this.DbPool.query(sql);
+                let result = yield this.DbPool.query(inputObject);
                 return result;
             }
             catch (error) {
@@ -78,11 +78,11 @@ class Database {
     * @param data: the data to be stored
     * @return result
     */
-    sqlExecSingleRow(client, sql, data) {
+    sqlExecSingleRow(client, inputObject) {
         return __awaiter(this, void 0, void 0, function* () {
             //logger.debug(`sqlExecSingleRow() sql: ${sql} | data: ${data}`);
             try {
-                let result = yield client.query(sql, data);
+                let result = yield client.query(inputObject);
                 //logger.debug(`sqlExecSingleRow(): ${result.command} | ${result.rowCount}`);
                 return result;
             }
