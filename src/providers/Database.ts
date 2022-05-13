@@ -5,7 +5,8 @@
  */
 
 const { Pool } = require('pg')
-
+import { Query } from '../interfaces/Query';
+import Log from '../middlewares/Log';
 
 import Locals from './Locals';
 
@@ -21,28 +22,14 @@ class Database {
     * @param sql: the query for store data
     * @return result
     */
-    public async sqlToDB(inputObject: Object): Promise<any> {
-        //logger.debug(`sqlToDB() sql: ${sql} | data: ${data}`);
+    public async sqlToDB(inputObject: Query): Promise<any> {
+        Log.info(`sqlToDB() name: ${inputObject.name} | sql: ${inputObject.text} | data: ${inputObject.data}`);
         try {
             let result = await this.DbPool.query(inputObject);
+            Log.info(`sqlToDB(): ${result.command} | ${result.rowCount}`);
             return result;
         } catch (error) {
-            throw new Error(error.message);
-        }
-    }
-
-    /* 
-    * Single Query to Postgres
-    * @param sql: the query for store data
-    * @param data: the data to be stored
-    * @return result
-    */
-    public async sqlToDBWithParams(sql, data) {
-        //logger.debug(`sqlToDB() sql: ${sql} | data: ${data}`);
-        try {
-            let result = await this.DbPool.query(sql, data);
-            return result;
-        } catch (error) {
+            Log.error(`sqlToDB() error: ${error.message} | sql: ${inputObject.text} | data: ${inputObject.data}`);
             throw new Error(error.message);
         }
     }
@@ -52,12 +39,13 @@ class Database {
     * COMMMIT or ROALLBACK needs to be called at the end before releasing the connection back to pool.
     */
     public async getTransaction() {
-        //logger.debug(`getTransaction()`);
+        Log.info(`getTransaction()`);
         const client = await this.DbPool.connect();
         try {
             await client.query('BEGIN');
             return client;
         } catch (error) {
+            Log.error(`getTransaction() error: ${error.message}`);
             throw new Error(error.message);
         }
     }
@@ -68,14 +56,15 @@ class Database {
     * @param data: the data to be stored
     * @return result
     */
-    public async sqlExecSingleRow(client, inputObject: Object): Promise<any> {
-        //logger.debug(`sqlExecSingleRow() sql: ${sql} | data: ${data}`);
+    public async sqlExecSingleRow(client, inputObject: Query): Promise<any> {
+        Log.info(`sqlExecSingleRow() name: ${inputObject.name} | sql: ${inputObject.text} | data: ${inputObject.data}`);
+        Log.info(`sqlExecSingleRow()`);
         try {
             let result = await client.query(inputObject);
-            //logger.debug(`sqlExecSingleRow(): ${result.command} | ${result.rowCount}`);
+            Log.info(`sqlExecSingleRow(): ${result.command} | ${result.rowCount}`);
             return result
         } catch (error) {
-            //logger.error(`sqlExecSingleRow() error: ${error.message} | sql: ${sql} | data: ${data}`);
+            Log.error(`sqlExecSingleRow() error: ${error.message} | sql: ${inputObject.text} | data: ${inputObject.data}`);
             throw new Error(error.message);
         }
     }
@@ -86,21 +75,20 @@ class Database {
     * @param data: the data to be stored
     * @return result
     */
-    public async sqlExecMultipleRows(client, sql, data) {
-        //logger.debug(`inside sqlExecMultipleRows()`);
-        if (data.length !== 0) {
-            for (let item of data) {
+    public async sqlExecMultipleRows(client, inputObject: Query) {
+        Log.info(`sqlExecMultipleRows() name: ${inputObject.name} | sql: ${inputObject.text} | data: ${inputObject.data}`);
+        if (inputObject.listData.length > 0) {
+            for (let item of inputObject.listData) {
                 try {
-                    //logger.debug(`sqlExecMultipleRows() item: ${item}`);
-                    //logger.debug(`sqlExecMultipleRows() sql: ${sql}`);
-                    await client.query(sql, item);
+                    Log.info(`sqlExecMultipleRows() item: ${item}`);
+                    Log.info(`sqlExecMultipleRows() sql: ${inputObject.text}`);
+                    await client.query(inputObject.text, item);
                 } catch (error) {
-                    //logger.error(`sqlExecMultipleRows() error: ${error}`);
+                    Log.error(`sqlExecMultipleRows() error: ${error.message}`);
                     throw new Error(error.message);
                 }
             }
         } else {
-            //logger.error(`sqlExecMultipleRows(): No data available`);
             throw new Error('sqlExecMultipleRows(): No data available');
         }
     }
@@ -111,15 +99,16 @@ class Database {
     public async rollback(client): Promise<void> {
         if (typeof client !== 'undefined' && client) {
             try {
-                //logger.info(`sql transaction rollback`);
+                Log.info(`sql transaction rollback`);
                 await client.query('ROLLBACK');
             } catch (error) {
                 throw new Error(error.message);
             } finally {
                 client.release();
+                Log.info(`ROLLBACK: Transaction Released`);
             }
         } else {
-            //logger.warn(`rollback() not excuted. client is not set`);
+            Log.warn(`rollback() not excuted. client is not set`);
         }
     }
 
@@ -130,9 +119,11 @@ class Database {
         try {
             await client.query('COMMIT');
         } catch (error) {
+            Log.error(`COMMIT error: ${error.message}`);
             throw new Error(error.message);
         } finally {
             client.release();
+            Log.info(`COMMIT: Transaction Released`);
         }
     }
 

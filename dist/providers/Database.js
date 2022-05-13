@@ -15,6 +15,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const { Pool } = require('pg');
+const Log_1 = require("../middlewares/Log");
 const Locals_1 = require("./Locals");
 class Database {
     constructor() {
@@ -27,7 +28,7 @@ class Database {
     */
     sqlToDB(inputObject) {
         return __awaiter(this, void 0, void 0, function* () {
-            //logger.debug(`sqlToDB() sql: ${sql} | data: ${data}`);
+            Log_1.default.info(`sqlToDB() name: ${inputObject.name} | sql: ${inputObject.text} | data: ${inputObject.data}`);
             try {
                 let result = yield this.DbPool.query(inputObject);
                 return result;
