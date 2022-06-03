@@ -8,6 +8,7 @@ import Encryptions from '../../../providers/Encryptions'
 import IUserService from "../../../interfaces/IUserService";
 
 import { validationResult } from 'express-validator';
+import Log from '../../../middlewares/Log';
 
 
 class Login {
@@ -42,13 +43,14 @@ class Login {
                     token: 'An error was occurred while generating the user token',
                 });
             }
-
+            Log.info(`New user logged ` + _username);
             return res.json({
                 _user,
                 token,
             });
 
         } catch (error) {
+            Log.error(`Internal Server Error ` + error);
             return res.status(500).json({
                 error: 'Internal Server Error',
             });

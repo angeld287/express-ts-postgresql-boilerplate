@@ -6,6 +6,7 @@
 
 import { validationResult } from 'express-validator';
 import IUserService from '../../../interfaces/IUserService';
+import Log from '../../../middlewares/Log';
 
 class Register {
     /**
@@ -49,18 +50,20 @@ class Register {
             const createUser = await user.createNewUser(_email, _phoneNumber, _password, _fullName, _gender, _userName, null);
 
             if (createUser.created) {
+                Log.info(`New user created ` + _userName);
                 return res.json({
                     userId: createUser.id,
                     message: 'The user has been created successfully'
                 });
             } else {
+                Log.error(`An error was occurred while creating the user`);
                 return res.status(500).json({
                     error: 'An error was occurred while creating the user',
                 });
             }
 
         } catch (error) {
-            console.log(error)
+            Log.error(`Internal Server Error ` + error);
             return res.status(500).json({
                 error: 'Internal Server Error',
             });
