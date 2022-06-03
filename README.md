@@ -1,1 +1,1 @@
-This boilerplate is an extension of the project [express-typescript](https://github.com/GeekyAnts/express-typescript) adapted for postgresql.
+This boilerplate is an extension of the project [express-typescript](https://github.com/GeekyAnts/express-typescript) adapted for postgresql and with TDD implementation.
