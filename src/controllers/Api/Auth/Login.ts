@@ -5,7 +5,7 @@
  */
 
 import Encryptions from '../../../providers/Encryptions'
-import userService from "../../../services/userService";
+import IUserService from "../../../interfaces/IUserService";
 
 import { validationResult } from 'express-validator';
 
@@ -14,6 +14,7 @@ class Login {
     public static async perform(req, res): Promise<any> {
         try {
             const errors = validationResult(req);
+            let user: IUserService;
 
             if (!errors.isEmpty()) {
                 return res.json({
@@ -24,7 +25,7 @@ class Login {
             const _username = req.body.username.toLowerCase();
             const _password = Encryptions.hash(req.body.password);
 
-            const _user = await userService.validateUser(_username, _password);
+            const _user = await user.validateUser(_username, _password);
 
             if (_user === false) {
                 return res.json({

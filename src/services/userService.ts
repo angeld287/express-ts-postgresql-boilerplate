@@ -6,8 +6,9 @@
 
 import Database from '../providers/Database';
 import { IUser, UserPictures, FederatedAuthProfiles, Tokens } from '../interfaces/models/User';
+import { IUserService } from '../interfaces/IUserService';
 
-class userService {
+class userService implements IUserService {
 
     /*
     * Query to valitad user credentials
@@ -15,7 +16,7 @@ class userService {
     * @param password: password hash of the user
     * @return User model with data
     */
-    static async validateUser(email: string, password: string): Promise<any> {
+    async validateUser(email: string, password: string): Promise<any> {
         const loginQuery = {
             name: 'fetch-user-by-mail-password',
             text: 'select * from dbo.users where email = $1 and user_password = $2',
@@ -40,7 +41,7 @@ class userService {
     * @param email: email of the user
     * @return : returns an object with the result
     */
-    static async verifyIfEmailExist(email: string): Promise<any> {
+    async verifyIfEmailExist(email: string): Promise<any> {
         const verifyQuery = {
             name: 'verify-email-exist',
             text: 'SELECT email FROM dbo.users where email = $1',
@@ -65,7 +66,7 @@ class userService {
     * @param phoneNumber: PhoneNumber of the user
     * @return : returns an object with the result
     */
-    static async verifyIfPhoneNumberExist(phoneNumber: string): Promise<any> {
+    async verifyIfPhoneNumberExist(phoneNumber: string): Promise<any> {
         const verifyQuery = {
             name: 'verify-phoneNumber-exist',
             text: 'SELECT phone_number FROM dbo.users where phone_number = $1',
@@ -89,7 +90,7 @@ class userService {
     * @param username: username of the user
     * @return : returns an object with the result
     */
-    static async verifyIfUserNameExist(userName: string): Promise<any> {
+    async verifyIfUserNameExist(userName: string): Promise<any> {
         const verifyQuery = {
             name: 'verify-userName-exist',
             text: 'SELECT user_name FROM dbo.users where user_name = $1',
@@ -113,7 +114,7 @@ class userService {
     * @param username: username of the user
     * @return : returns a boolean with the result
     */
-    static async createNewUser(email: string, phoneNumber: string, userPassword: string, fullname: string, gender: string, userName: string, profile: number): Promise<any> {
+    async createNewUser(email: string, phoneNumber: string, userPassword: string, fullname: string, gender: string, userName: string, profile: number): Promise<any> {
         const createTransaction = {
             name: 'create-new-user',
             text: 'INSERT INTO dbo.users(email, phone_number, user_password, fullname, gender, user_name, profile)VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id',

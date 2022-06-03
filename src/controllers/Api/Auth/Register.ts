@@ -5,7 +5,7 @@
  */
 
 import { validationResult } from 'express-validator';
-import userService from '../../../services/userService';
+import IUserService from '../../../interfaces/IUserService';
 
 class Register {
     /**
@@ -17,6 +17,7 @@ class Register {
     public static async perform(req, res): Promise<any> {
         try {
             const errors = validationResult(req);
+            let user: IUserService
 
             if (!errors.isEmpty()) {
                 return res.json({
@@ -33,9 +34,9 @@ class Register {
 
             const existenceVerifications = await Promise.all(
                 [
-                    userService.verifyIfEmailExist(_email),
-                    userService.verifyIfPhoneNumberExist(_phoneNumber),
-                    userService.verifyIfUserNameExist(_userName)
+                    user.verifyIfEmailExist(_email),
+                    user.verifyIfPhoneNumberExist(_phoneNumber),
+                    user.verifyIfUserNameExist(_userName)
                 ]
             );
 
@@ -45,7 +46,7 @@ class Register {
                 });
             }
 
-            const createUser = await userService.createNewUser(_email, _phoneNumber, _password, _fullName, _gender, _userName, null);
+            const createUser = await user.createNewUser(_email, _phoneNumber, _password, _fullName, _gender, _userName, null);
 
             if (createUser.created) {
                 return res.json({
