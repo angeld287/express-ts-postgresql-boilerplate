@@ -5,17 +5,19 @@
  */
 
 import Encryptions from '../../../providers/Encryptions'
-import IUserService from "../../../interfaces/IUserService";
 
 import { validationResult } from 'express-validator';
 import Log from '../../../middlewares/Log';
+import IUserService from "../../../interfaces/IUserService";
+import userService from '../../../services/userService';
 
 
 class Login {
     public static async perform(req, res): Promise<any> {
         try {
             const errors = validationResult(req);
-            let user: IUserService;
+
+            let user: IUserService = new userService();
 
             if (!errors.isEmpty()) {
                 return res.json({

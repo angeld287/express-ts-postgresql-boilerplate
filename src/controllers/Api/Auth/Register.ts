@@ -7,6 +7,7 @@
 import { validationResult } from 'express-validator';
 import IUserService from '../../../interfaces/IUserService';
 import Log from '../../../middlewares/Log';
+import userService from '../../../services/userService';
 
 class Register {
     /**
@@ -18,7 +19,7 @@ class Register {
     public static async perform(req, res): Promise<any> {
         try {
             const errors = validationResult(req);
-            let user: IUserService
+            let user: IUserService = new userService()
 
             if (!errors.isEmpty()) {
                 return res.json({
