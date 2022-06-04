@@ -2,6 +2,7 @@
 const request = require('supertest');
 import Routes from '../src/providers/Routes';
 import express from 'express'
+import IUser from '../src/interfaces/models/User'
 
 
 
@@ -26,13 +27,14 @@ describe('Test login user', () => {
         password: "admin2807"
     }
 
-    test('It should respond with 200 success when login with correct credentials', async () => {
+    test('The response should match with the interfaces IUser when login with correct credentials', async () => {
         const response = await request(app)
             .post('/api/auth/login')
             .send(user)
             .expect('Content-Type', /json/)
             .expect(200);
 
+        expect(typeof response.body._user).toBe('IUser')
     });
 
     test('It should respond "E-mail cannot be blank" when email is blank', async () => {
