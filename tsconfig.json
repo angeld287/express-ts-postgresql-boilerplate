@@ -15,5 +15,6 @@
   "exclude": [
     "typings/*",
     "node_modules"
-  ]
+  ],
+  "allowSyntheticDefaultImports": true
 }

@@ -1,7 +1,5 @@
 import App from './providers/App'
 
-async function data() {
-    App.loadServer();
-}
+App.loadServer();
 
-data()
+export default App

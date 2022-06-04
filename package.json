@@ -8,7 +8,8 @@
     "dev": "nodemon --exec ts-node src/server.ts",
     "dev2": "tsc --project './tsconfig.json' --watch & NODE_ENV=development nodemon",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --detectOpenHandles",
+    "test-watch": "jest --coverage --watchAll"
   },
   "keywords": [],
   "author": "Angel Angeles",
@@ -27,10 +28,16 @@
     "pg": "^8.7.3"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
     "@types/errorhandler": "^1.5.0",
     "@types/express": "^4.17.13",
+    "@types/jest": "^28.1.0",
     "@types/node": "^17.0.31",
+    "@types/supertest": "^2.0.12",
+    "jest": "^28.1.0",
     "nodemon": "^2.0.16",
+    "supertest": "^6.2.3",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4"
   }
