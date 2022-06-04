@@ -636,3 +636,441 @@
 [2022-6-4 12:1:45] [INFO] Booting the 'Views' middleware...
 [2022-6-4 12:1:45] [INFO] Booting the 'Statics' middleware...
 [2022-6-4 12:1:45] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-6-4 12:7:7] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:7] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:7:7] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:7:7] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:7] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:7:22] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:22] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:7:22] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:7:22] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:22] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:7:22] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:22] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:7:22] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:7:22] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:22] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:7:28] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:28] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:28] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:7:28] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:7:28] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:7:28] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:7:28] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:28] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:7:28] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:28] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:7:36] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:36] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:36] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:7:36] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:7:36] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:36] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:7:36] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:7:36] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:7:36] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:7:36] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:8:6] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:6] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:8:6] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:8:6] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:6] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:6] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:8:6] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:8:6] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:8:6] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:6] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:8:17] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:17] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:17] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:8:17] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:8:17] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:17] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:8:17] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:8:17] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:8:17] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:17] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:8:18] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:18] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:8:18] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:8:18] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:8:18] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:20:53] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:20:53] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:20:53] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:20:53] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:20:53] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:20:53] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:20:53] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:20:53] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:20:53] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:20:53] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:20:55] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:20:55] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:21:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:21:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:21:33] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:21:33] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:21:33] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:21:33] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:21:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:21:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:21:33] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:21:33] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:22:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:22:33] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:22:33] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:22:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:22:33] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:22:34] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:22:34] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:22:34] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:22:34] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:22:34] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 15:25:6] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:25:6] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 15:25:6] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 15:25:6] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:25:6] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 15:25:7] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:25:7] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 15:25:7] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 15:25:7] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:25:7] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 15:33:32] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:33:32] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 15:33:32] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 15:33:32] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:33:32] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 15:33:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:33:33] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 15:33:33] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 15:33:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:33:33] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 15:54:47] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:54:47] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 15:54:47] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 15:54:47] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:54:47] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 15:54:48] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:54:48] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 15:54:48] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 15:54:48] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 15:54:48] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:2:54] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:2:54] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:2:54] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:2:54] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:2:54] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:2:56] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:2:56] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:2:56] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:2:56] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:2:56] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:3:40] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:3:40] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:3:40] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:3:40] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:3:40] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:3:41] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:3:41] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:3:41] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:3:41] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:3:41] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:3:57] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:3:57] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:3:57] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:3:57] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:3:57] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:3:58] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:3:58] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:3:58] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:3:58] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:3:58] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:4:31] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:4:31] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:4:31] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:4:31] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:4:31] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:4:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:4:33] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:4:33] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:4:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:4:33] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:7:46] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:7:46] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:7:46] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:7:46] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:7:46] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:7:47] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:7:47] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:7:47] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:7:47] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:7:47] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:8:14] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:8:14] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:8:14] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:8:14] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:8:14] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:8:15] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:8:15] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:8:15] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:8:15] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:8:15] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:9:41] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:9:41] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:9:41] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:9:41] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:9:41] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:9:42] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:9:42] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:9:42] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:9:42] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:9:42] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:11:7] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:11:7] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:11:7] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:11:7] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:11:7] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:11:8] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:11:8] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:11:8] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:11:8] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:11:8] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:11:46] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:11:46] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:11:46] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:11:46] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:11:46] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:11:47] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:11:47] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:11:47] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:11:47] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:11:47] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:11:47] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:11:48] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:11:48] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:11:48] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:11:48] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:11:48] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:14:9] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:14:9] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:14:9] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:14:9] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:14:9] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:14:9] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:14:9] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:14:9] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:14:9] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:14:9] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:14:9] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:14:10] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:14:10] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:14:10] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:14:10] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:14:10] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:14:15] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:14:15] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:14:15] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:14:15] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:14:15] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:14:16] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:14:16] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:14:16] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:14:16] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:14:16] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:14:16] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:14:17] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:14:17] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:14:17] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:14:17] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:14:17] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:15:40] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:15:40] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:15:40] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:15:40] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:15:40] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:15:40] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:15:40] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:15:40] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:15:40] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:15:40] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:15:40] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:15:42] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:15:42] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:15:42] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:15:42] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:15:42] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:16:34] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:16:34] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:16:34] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:16:34] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:16:34] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:16:34] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:16:34] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:16:34] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:16:34] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:16:34] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:16:34] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:16:35] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:16:35] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:16:35] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:16:35] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:16:35] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:0] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:19:0] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:0] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:19:0] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:19:0] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:0] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:19:0] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:19:0] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:19:0] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:0] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:0] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:0] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:19:0] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:19:0] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:19:0] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:0] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:0] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:1] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:19:1] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:1] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:19:1] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:19:1] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:7] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:19:7] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:7] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:19:7] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:19:7] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:7] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:19:7] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:19:7] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:19:7] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:7] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:7] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:7] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:19:7] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:19:7] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:19:7] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:7] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:7] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:19:8] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:19:8] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:19:8] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:19:8] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:19:8] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:10] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:10] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:11] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:20:11] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:11] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:20:11] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:20:11] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:50] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:50] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:20:51] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:20:51] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:20:51] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:20:51] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:20:51] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:2] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:2] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:3] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:21:3] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:3] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:21:3] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:21:3] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:29] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-email-exist | sql: SELECT email FROM dbo.users where email = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-phoneNumber-exist | sql: SELECT phone_number FROM dbo.users where phone_number = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB() name: verify-userName-exist | sql: SELECT user_name FROM dbo.users where user_name = $1 | data: undefined
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:29] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 16:21:31] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:21:31] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 16:21:31] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 16:21:31] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 16:21:31] [INFO] sqlToDB(): SELECT | 0

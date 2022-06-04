@@ -52,9 +52,9 @@ class userService implements IUserService {
         try {
             result = await Database.sqlToDB(verifyQuery);
             if (result.rows.length === 0) {
-                return { exist: false, message: null };
+                return { exist: false, msg: null };
             } else {
-                return { exist: true, message: `The email: ${email} already exist` };
+                return { exist: true, msg: `The email: ${email} already exist.` };
             }
         } catch (error) {
             throw new Error(error.message);
@@ -76,9 +76,9 @@ class userService implements IUserService {
         try {
             result = await Database.sqlToDB(verifyQuery);
             if (result.rows.length === 0) {
-                return { exist: false, message: null };
+                return { exist: false, msg: null };
             } else {
-                return { exist: true, message: `The phoneNumber: ${phoneNumber} already exist` };
+                return { exist: true, msg: `The phoneNumber: ${phoneNumber} already exist.` };
             }
         } catch (error) {
             throw new Error(error.message);
@@ -100,9 +100,9 @@ class userService implements IUserService {
         try {
             result = await Database.sqlToDB(verifyQuery);
             if (result.rows.length === 0) {
-                return { exist: false, message: null };
+                return { exist: false, msg: null };
             } else {
-                return { exist: true, message: `The userName: ${userName} already exist` };
+                return { exist: true, msg: `The userName: ${userName} already exist.` };
             }
         } catch (error) {
             throw new Error(error.message);

@@ -21,8 +21,6 @@ class Register {
             const errors = validationResult(req);
             let user: IUserService = new userService()
 
-            console.log(req.body)
-
             if (!errors.isEmpty()) {
                 return res.json({
                     errors: errors.array()
@@ -82,7 +80,7 @@ class Register {
     public static verifyPasswordsMatch(value, req) {
         if (value !== req.body.confirmPassword) {
             // trow error if passwords do not match
-            throw new Error("Passwords don't match");
+            throw new Error("Passwords don't match.");
         } else {
             return value;
         }

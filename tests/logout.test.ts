@@ -2,6 +2,19 @@
 const request = require('supertest');
 import Routes from '../src/providers/Routes';
 import express from 'express'
+import IUser from '../src/interfaces/models/User'
+
+
+
+const userRegister = {
+    email: "aangee21__@litystyles.com",
+    username: "angeles6_4222507",
+    phoneNumber: "8293619108",
+    password: "admin2807",
+    confirmPassword: "admin2807",
+    fullName: "Angel Daniel Angeles",
+    gender: "m"
+}
 
 let app: express.Application = express();
 app.use(express.json());
