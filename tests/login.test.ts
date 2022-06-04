@@ -34,7 +34,13 @@ describe('Test login user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        expect(typeof response.body._user).toBe('IUser')
+        expect(response.body._user).toHaveProperty('email')
+        expect(response.body._user).toHaveProperty('phoneNumber')
+        expect(response.body._user).toHaveProperty('passwordResetToken')
+        expect(response.body._user).toHaveProperty('passwordResetExpires')
+        expect(response.body._user).toHaveProperty('fullname')
+        expect(response.body._user).toHaveProperty('gender')
+        expect(response.body._user).toHaveProperty('userName')
     });
 
     test('It should respond "E-mail cannot be blank" when email is blank', async () => {

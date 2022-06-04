@@ -559,3 +559,80 @@
 [2022-6-4 11:40:40] [INFO] New user logged aangeles@litystyles.com
 [2022-6-4 11:40:40] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
 [2022-6-4 11:40:40] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 11:48:25] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:48:25] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 11:48:25] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 11:48:25] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:48:25] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 11:48:55] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:48:55] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 11:48:55] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 11:48:55] [ERROR] Internal Server Error TypeError: Cannot set properties of undefined (setting 'email')
+[2022-6-4 11:48:55] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:48:55] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 11:53:5] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:53:5] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 11:53:5] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 11:53:5] [ERROR] Internal Server Error TypeError: Cannot set properties of undefined (setting 'email')
+[2022-6-4 11:53:5] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:53:5] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 11:53:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:53:33] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 11:53:33] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 11:53:33] [ERROR] Internal Server Error ReferenceError: Cannot access 'userObject' before initialization
+[2022-6-4 11:53:33] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:53:33] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 11:53:37] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:53:37] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 11:53:37] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 11:53:37] [ERROR] Internal Server Error TypeError: Cannot set properties of undefined (setting 'email')
+[2022-6-4 11:53:37] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:53:37] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 11:55:25] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:55:25] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 11:55:25] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 11:55:25] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:55:25] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 11:55:52] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:55:52] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 11:55:52] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 11:55:52] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:55:52] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 11:56:30] [INFO] Booting the 'HTTP' middleware...
+[2022-6-4 11:56:30] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-6-4 11:56:30] [INFO] Booting the 'CsrfToken' middleware...
+[2022-6-4 11:56:30] [INFO] Booting the 'Statics' middleware...
+[2022-6-4 11:56:30] [INFO] Booting the 'Views' middleware...
+[2022-6-4 11:56:30] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 11:56:30] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 11:56:30] [INFO] New user logged aangee21__@litystyles.com
+[2022-6-4 12:0:23] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:0:23] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:0:23] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:0:23] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:0:23] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:0:25] [INFO] Booting the 'HTTP' middleware...
+[2022-6-4 12:0:25] [INFO] Booting the 'CsrfToken' middleware...
+[2022-6-4 12:0:25] [INFO] Booting the 'Views' middleware...
+[2022-6-4 12:0:25] [INFO] Booting the 'Statics' middleware...
+[2022-6-4 12:0:25] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-6-4 12:1:31] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:1:31] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:1:31] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:1:31] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:1:31] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:1:33] [INFO] Booting the 'HTTP' middleware...
+[2022-6-4 12:1:33] [INFO] Booting the 'CsrfToken' middleware...
+[2022-6-4 12:1:33] [INFO] Booting the 'Views' middleware...
+[2022-6-4 12:1:33] [INFO] Booting the 'Statics' middleware...
+[2022-6-4 12:1:33] [INFO] Booting the 'StatusMonitor' middleware...
+[2022-6-4 12:1:44] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:1:44] [INFO] sqlToDB(): SELECT | 1
+[2022-6-4 12:1:44] [INFO] New user logged aangeles@litystyles.com
+[2022-6-4 12:1:44] [INFO] sqlToDB() name: fetch-user-by-mail-password | sql: select * from dbo.users where email = $1 and user_password = $2 | data: undefined
+[2022-6-4 12:1:44] [INFO] sqlToDB(): SELECT | 0
+[2022-6-4 12:1:45] [INFO] Booting the 'HTTP' middleware...
+[2022-6-4 12:1:45] [INFO] Booting the 'CsrfToken' middleware...
+[2022-6-4 12:1:45] [INFO] Booting the 'Views' middleware...
+[2022-6-4 12:1:45] [INFO] Booting the 'Statics' middleware...
+[2022-6-4 12:1:45] [INFO] Booting the 'StatusMonitor' middleware...

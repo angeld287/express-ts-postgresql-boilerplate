@@ -18,6 +18,7 @@ export interface IUser {
 
     fullname: string;
     gender: string;
+    userName: string;
 }
 
 export interface Tokens {

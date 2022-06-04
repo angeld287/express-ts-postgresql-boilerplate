@@ -8,6 +8,7 @@ import Encryptions from '../../../providers/Encryptions'
 
 import { validationResult } from 'express-validator';
 import Log from '../../../middlewares/Log';
+import IUser from "../../../interfaces/models/User";
 import IUserService from "../../../interfaces/IUserService";
 import userService from '../../../services/userService';
 import Locals from '../../../providers/Locals'
@@ -46,8 +47,21 @@ class Login {
                 });
             }
             Log.info(`New user logged ` + _username);
+
+            let userObject: IUser = {
+                id: _user.id,
+                email: _user.email,
+                phoneNumber: _user.phone_number,
+                passwordResetToken: _user.password_reset_token,
+                passwordResetExpires: _user.password_reset_expires,
+                fullname: _user.fullname,
+                gender: _user.gender,
+                profile: _user.profile,
+                userName: _user.user_name,
+            };
+
             return res.json({
-                _user,
+                _user: userObject,
                 token,
             });
 

@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654357241726" clover="3.2.0">
-  <project timestamp="1654357241726" name="All files">
-    <metrics statements="186" coveredstatements="63" conditionals="48" coveredconditionals="24" methods="35" coveredmethods="14" elements="269" coveredelements="101" complexity="0" loc="186" ncloc="186" packages="5" files="9" classes="9"/>
+<coverage generated="1654358505630" clover="3.2.0">
+  <project timestamp="1654358505630" name="All files">
+    <metrics statements="187" coveredstatements="64" conditionals="48" coveredconditionals="24" methods="35" coveredmethods="14" elements="270" coveredelements="102" complexity="0" loc="187" ncloc="187" packages="5" files="9" classes="9"/>
     <package name="controllers.Api.Auth">
-      <metrics statements="47" coveredstatements="14" conditionals="14" coveredconditionals="5" methods="6" coveredmethods="1"/>
+      <metrics statements="48" coveredstatements="15" conditionals="14" coveredconditionals="5" methods="6" coveredmethods="1"/>
       <file name="Login.ts" path="/Users/aangeles/Desktop/projects/demo/express-ts-postgresql-boilerplate/src/controllers/Api/Auth/Login.ts">
-        <metrics statements="17" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
-        <line num="18" count="6" type="stmt"/>
+        <metrics statements="18" coveredstatements="15" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="19" count="6" type="stmt"/>
         <line num="20" count="6" type="stmt"/>
-        <line num="22" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="23" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="4" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="33" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="42" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="44" count="0" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
       </file>
       <file name="Register.ts" path="/Users/aangeles/Desktop/projects/demo/express-ts-postgresql-boilerplate/src/controllers/Api/Auth/Register.ts">
         <metrics statements="30" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="5" coveredmethods="0"/>
@@ -76,8 +77,8 @@
         <line num="55" count="5" type="stmt"/>
         <line num="56" count="5" type="stmt"/>
         <line num="58" count="5" type="stmt"/>
-        <line num="59" count="4" type="cond" truecount="3" falsecount="1"/>
-        <line num="61" count="4" type="stmt"/>
+        <line num="59" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="61" count="5" type="stmt"/>
         <line num="62" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="63" count="4" type="stmt"/>
         <line num="64" count="4" type="cond" truecount="1" falsecount="1"/>
