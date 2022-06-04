@@ -21,6 +21,8 @@ class Register {
             const errors = validationResult(req);
             let user: IUserService = new userService()
 
+            console.log(req.body)
+
             if (!errors.isEmpty()) {
                 return res.json({
                     errors: errors.array()

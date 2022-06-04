@@ -10,13 +10,13 @@ import { validationResult } from 'express-validator';
 import Log from '../../../middlewares/Log';
 import IUserService from "../../../interfaces/IUserService";
 import userService from '../../../services/userService';
+import Locals from '../../../providers/Locals'
 
 
 class Login {
     public static async perform(req, res): Promise<any> {
         try {
             const errors = validationResult(req);
-
             let user: IUserService = new userService();
 
             if (!errors.isEmpty()) {
@@ -37,7 +37,7 @@ class Login {
                 });
             }
 
-            const token = await Encryptions.signEmailPasswordToken(_username, _password, res.locals.app.appSecret);
+            const token = await Encryptions.signEmailPasswordToken(_username, _password, Locals.config().appSecret);
 
             if (token === false) {
                 return res.json({

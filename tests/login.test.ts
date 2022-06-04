@@ -1,26 +1,115 @@
 
 const request = require('supertest');
 import Routes from '../src/providers/Routes';
-import apiRouter from '../src/routes/Api'
 import express from 'express'
-import Locals from '../src/providers/Locals';
 
-const user = {
-    username: "aangeles@litystyles.com",
-    password: "admin2807"
+
+
+const userRegister = {
+    email: "aangee21__@litystyles.com",
+    username: "angeles6_4222507",
+    phoneNumber: "8293619108",
+    password: "admin2807",
+    confirmPassword: "admin2807",
+    fullName: "Angel Daniel Angeles",
+    gender: "m"
 }
 
-const app = express();
-const apiPrefix = Locals.config().apiPrefix;
+let app: express.Application = express();
+app.use(express.json());
+app = Routes.mountApi(app);
 
-app.use(`/${apiPrefix}`, apiRouter);
 
 describe('Test login user', () => {
+    const user = {
+        username: "aangeles@litystyles.com",
+        password: "admin2807"
+    }
+
     test('It should respond with 200 success when login with correct credentials', async () => {
-        await request(app)
+        const response = await request(app)
             .post('/api/auth/login')
             .send(user)
             .expect('Content-Type', /json/)
             .expect(200);
+
+    });
+
+    test('It should respond "E-mail cannot be blank" when email is blank', async () => {
+        user.username = ""
+
+        const response = await request(app)
+            .post('/api/auth/login')
+            .send(user)
+            .expect('Content-Type', /json/)
+            .expect(200);
+
+        if (response.body.errors !== undefined) {
+            expect(response.body.errors[0].msg).toStrictEqual("E-mail cannot be blank.");
+        }
+
+    });
+
+    test('It should respond "E-mail is not valid" when email is invalid', async () => {
+        user.username = "usuariosinarroba"
+
+        const response = await request(app)
+            .post('/api/auth/login')
+            .send(user)
+            .expect('Content-Type', /json/)
+            .expect(200);
+
+        if (response.body.errors !== undefined) {
+            expect(response.body.errors[0].msg).toStrictEqual("E-mail is not valid.");
+        }
+
+    });
+
+
+    test('It should respond "Password cannot be blank" when password is blank', async () => {
+        user.username = 'aangeles@litystyles.com';
+        user.password = ""
+
+        const response = await request(app)
+            .post('/api/auth/login')
+            .send(user)
+            .expect('Content-Type', /json/)
+            .expect(200);
+
+        if (response.body.errors !== undefined) {
+            expect(response.body.errors[0].msg).toStrictEqual("Password cannot be blank.");
+        }
+
+    });
+
+    test('It should respond "Password length must be atleast 8 characters." when password is invalid', async () => {
+        user.password = "3"
+
+        const response = await request(app)
+            .post('/api/auth/login')
+            .send(user)
+            .expect('Content-Type', /json/)
+            .expect(200);
+
+        if (response.body.errors !== undefined) {
+            expect(response.body.errors[0].msg).toStrictEqual("Password length must be atleast 8 characters.");
+        }
+
+    });
+
+    test('It should respond "Invalid Username or Password." when password is invalid', async () => {
+        user.username = "jdavid@hotmail.com"
+        user.password = "admin2807"
+
+        const response = await request(app)
+            .post('/api/auth/login')
+            .send(user)
+            .expect('Content-Type', /json/)
+            .expect(200);
+
+        if (response.body.errors !== undefined) {
+            expect(response.body.errors[0].msg).toStrictEqual("Invalid Username or Password.");
+        }
+
     });
 })
