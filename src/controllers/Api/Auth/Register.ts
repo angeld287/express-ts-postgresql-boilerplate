@@ -6,6 +6,7 @@
 
 import { validationResult } from 'express-validator';
 import IUserService from '../../../interfaces/IUserService';
+import { IRequest, IResponse } from '../../../interfaces/vendors';
 import Log from '../../../middlewares/Log';
 import userService from '../../../services/userService';
 
@@ -16,7 +17,7 @@ class Register {
      * @param {string} res: the response expected by the post
      * @return {Promise<>} return a promise with the json result
      */
-    public static async perform(req, res): Promise<any> {
+    public static async perform(req: IRequest, res: IResponse): Promise<any> {
         try {
             const errors = validationResult(req);
             let user: IUserService = new userService()

@@ -8,6 +8,7 @@ import { Router } from 'express';
 
 import LoginController from '../controllers/Api/Auth/Login'
 import RegisterController from '../controllers/Api/Auth/Register'
+import LogoutController from '../controllers/Api/Auth/Logout';
 
 const router = Router();
 
@@ -44,6 +45,11 @@ router.post(
 
 
     RegisterController.perform
+);
+
+router.post(
+    '/auth/logout',
+    LogoutController.perform
 );
 
 export default router;

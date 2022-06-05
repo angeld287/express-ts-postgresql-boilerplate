@@ -2,9 +2,21 @@
 const request = require('supertest');
 import Routes from '../src/providers/Routes';
 import express from 'express'
+import session from 'express-session';
+import Locals from '../src/providers/Locals';
 
 let app: express.Application = express();
 app.use(express.json());
+const options = {
+    resave: true,
+    saveUninitialized: true,
+    secret: Locals.config().appSecret,
+    cookie: {
+        maxAge: 1209600000
+    }
+};
+
+app.use(session(options))
 app = Routes.mountApi(app);
 
 

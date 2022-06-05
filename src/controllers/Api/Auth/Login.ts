@@ -12,10 +12,11 @@ import IUser from "../../../interfaces/models/User";
 import IUserService from "../../../interfaces/IUserService";
 import userService from '../../../services/userService';
 import Locals from '../../../providers/Locals'
+import { IResponse, IRequest } from '../../../interfaces/vendors';
 
 
 class Login {
-    public static async perform(req, res): Promise<any> {
+    public static async perform(req: IRequest, res: IResponse): Promise<any> {
         try {
             const errors = validationResult(req);
             let user: IUserService = new userService();
@@ -46,6 +47,7 @@ class Login {
                     token: 'An error was occurred while generating the user token',
                 });
             }
+
             Log.info(`New user logged ` + _username);
 
             let userObject: IUser = {
@@ -60,9 +62,12 @@ class Login {
                 userName: _user.user_name,
             };
 
+            req.session.token = token;
+            req.session.user = userObject;
+
             return res.json({
-                _user: userObject,
-                token,
+                _user: req.session.user,
+                token: req.session.token,
             });
 
         } catch (error) {
