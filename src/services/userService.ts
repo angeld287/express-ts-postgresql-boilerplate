@@ -19,7 +19,7 @@ class userService implements IUserService {
     async validateUser(email: string, password: string): Promise<any> {
         const loginQuery = {
             name: 'fetch-user-by-mail-password',
-            text: 'select * from dbo.users where email = $1 and user_password = $2',
+            text: 'select * from public.users where email = $1 and user_password = $2',
             values: [email, password],
         }
         let result = null;
@@ -44,7 +44,7 @@ class userService implements IUserService {
     async verifyIfEmailExist(email: string): Promise<any> {
         const verifyQuery = {
             name: 'verify-email-exist',
-            text: 'SELECT email FROM dbo.users where email = $1',
+            text: 'SELECT email FROM public.users where email = $1',
             values: [email],
         }
 
@@ -69,7 +69,7 @@ class userService implements IUserService {
     async verifyIfPhoneNumberExist(phoneNumber: string): Promise<any> {
         const verifyQuery = {
             name: 'verify-phoneNumber-exist',
-            text: 'SELECT phone_number FROM dbo.users where phone_number = $1',
+            text: 'SELECT phone_number FROM public.users where phone_number = $1',
             values: [phoneNumber],
         }
         let result = null;
@@ -93,7 +93,7 @@ class userService implements IUserService {
     async verifyIfUserNameExist(userName: string): Promise<any> {
         const verifyQuery = {
             name: 'verify-userName-exist',
-            text: 'SELECT user_name FROM dbo.users where user_name = $1',
+            text: 'SELECT user_name FROM public.users where user_name = $1',
             values: [userName],
         }
         let result = null;
@@ -117,7 +117,7 @@ class userService implements IUserService {
     async createNewUser(email: string, phoneNumber: string, userPassword: string, fullname: string, gender: string, userName: string, profile: number): Promise<any> {
         const createTransaction = {
             name: 'create-new-user',
-            text: 'INSERT INTO dbo.users(email, phone_number, user_password, fullname, gender, user_name, profile)VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id',
+            text: 'INSERT INTO public.users(email, phone_number, user_password, fullname, gender, user_name, profile)VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id',
             values: [email, phoneNumber, userPassword, fullname, gender, userName, profile],
         }
 
