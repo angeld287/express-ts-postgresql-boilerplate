@@ -14,11 +14,7 @@ class Locals {
      */
     public static config(): any {
         const port = process.env.PORT || 3001;
-        const PGHOST = process.env.POSTGRES_HOST || 'localhost';
-        const PGUSER = process.env.POSTGRES_USER || 'admin';
-        const PGDATABASE = process.env.POSTGRES_DB || 'litystyles';
-        const PGPASSWORD = process.env.POSTGRES_PASSWORD || 'admin';
-        const PGPORT = process.env.POSTGRES_PORT || 5432;
+        const DATABASE_URL = process.env.DATABASE_URL || 'postgres://admin:admin@localhost:5432/litystyles';
 
         const appSecret = process.env.APP_SECRET || 'lity_secret_styles';
         const apiPrefix = process.env.API_PREFIX || 'api';
@@ -28,13 +24,7 @@ class Locals {
             apiPrefix,
             appSecret,
             port,
-            pg: {
-                user: PGUSER,
-                host: PGHOST,
-                database: PGDATABASE,
-                password: PGPASSWORD,
-                port: PGPORT,
-            }
+            dbUrl: DATABASE_URL
         }
     }
 

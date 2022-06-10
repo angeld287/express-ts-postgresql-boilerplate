@@ -14,7 +14,10 @@ class Database {
     private DbPool;
 
     constructor() {
-        this.DbPool = new Pool(Locals.config().pg);
+        this.DbPool = new Pool({
+            max: 10,
+            connectionString: Locals.config().dbUrl
+        });
     }
 
     /* 

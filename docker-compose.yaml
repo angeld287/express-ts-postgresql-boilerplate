@@ -1,52 +1,28 @@
-version: '3'
+# docker-compose.yml
+version: "3"
 services:
     express-typescript:
-        build:
-            context: .
-            dockerfile: local.Dockerfile
-        container_name: 'app-express-typescript'
+        build: .
         depends_on:
-            # Our app does not work without our database
-            # so this ensures our database is loaded first
             - postgres
-        volumes:
-            - .:/usr/src/app/
         working_dir: /usr/src/app
         environment:
-            - GOOGLE_ID=
-            - GOOGLE_SECRET=
-            - TWITTER_KEY=
-            - TWITTER_SECRET=
-            - PORT=4040
-            - POSTGRES_PORT=5433
-            - POSTGRES_USER=admin
-            - POSTGRES_PASSWORD=admin
-            - POSTGRES_DB=db
-            - POSTGRES_HOST=postgres
-        command: sh -c "npm install && npm run dev"
+            DATABASE_URL: postgres://user:pass@postgres:5432/db
+            NODE_ENV: development
+            PORT: 4040
         ports:
             - 4040:4040
-            - 5550:5550
+        command: sh -c "npm install && npm run dev"
+        volumes:
+            - .:/usr/src/app/
+            - /app/node_modules
     postgres:
-        image: "postgres"
+        image: postgres:10.4
         ports:
-            - "5433:5433"
+            - "35431:5432"
         environment:
-            - POSTGRES_USER=admin
-            - POSTGRES_PASSWORD=admin
-            - POSTGRES_DB=db
-        expose:
-            - 5433
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: pass
+            POSTGRES_DB: db
         volumes:
             - ./db/database-seed.sql:/docker-entrypoint-initdb.d/database-seed.sql
-
-    # PostgreSQL pgAdmin panel accessible at http://localhost:16543/
-    pgadmin-compose:
-        image: dpage/pgadmin4
-        environment:
-            PGADMIN_DEFAULT_EMAIL: "aangeles@litystyles.com"
-            PGADMIN_DEFAULT_PASSWORD: "admin"
-        ports:
-            - "16543:80"
-        depends_on:
-            - postgres
