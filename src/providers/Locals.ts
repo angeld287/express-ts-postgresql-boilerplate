@@ -14,8 +14,8 @@ class Locals {
      */
     public static config(): any {
         const port = process.env.PORT || 3001;
-        const PGHOST = process.env.PGHOST || 'localhost';
-        const PGUSER = process.env.PGUSER || 'admin'; //process.env.USER || 
+        const PGHOST = process.env.POSTGRES_HOST || 'localhost';
+        const PGUSER = process.env.POSTGRES_USER || 'admin';
         const PGDATABASE = process.env.POSTGRES_DB || 'litystyles';
         const PGPASSWORD = process.env.POSTGRES_PASSWORD || 'admin';
         const PGPORT = process.env.POSTGRES_PORT || 5432;

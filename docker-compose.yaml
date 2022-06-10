@@ -13,12 +13,16 @@ services:
             - .:/usr/src/app/
         working_dir: /usr/src/app
         environment:
-            - REDIS_QUEUE_HOST=redis
             - GOOGLE_ID=
             - GOOGLE_SECRET=
             - TWITTER_KEY=
             - TWITTER_SECRET=
             - PORT=4040
+            - POSTGRES_PORT=5433
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=admin
+            - POSTGRES_DB=db
+            - POSTGRES_HOST=postgres
         command: sh -c "npm install && npm run dev"
         ports:
             - 4040:4040
@@ -26,12 +30,23 @@ services:
     postgres:
         image: "postgres"
         ports:
-            - "27017:27017"
+            - "5433:5433"
         environment:
             - POSTGRES_USER=admin
             - POSTGRES_PASSWORD=admin
             - POSTGRES_DB=db
         expose:
-            - 27017
+            - 5433
         volumes:
             - ./db/database-seed.sql:/docker-entrypoint-initdb.d/database-seed.sql
+
+    # PostgreSQL pgAdmin panel accessible at http://localhost:16543/
+    pgadmin-compose:
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: "aangeles@litystyles.com"
+            PGADMIN_DEFAULT_PASSWORD: "admin"
+        ports:
+            - "16543:80"
+        depends_on:
+            - postgres
