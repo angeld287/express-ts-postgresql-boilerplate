@@ -6,13 +6,16 @@ RUN npm install -g typescript
 
 RUN npm install -g nodemon
 
-COPY package*.json ./
+COPY ./package*.json ./
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
-EXPOSE 4040 5550
+RUN chown -R node:node /usr/src/app
+USER node
+
+EXPOSE 3000
 
 #Build to project
 RUN npm run build

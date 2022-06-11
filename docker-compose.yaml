@@ -7,22 +7,23 @@ services:
             - postgres
         working_dir: /usr/src/app
         environment:
-            DATABASE_URL: postgres://user:pass@postgres:5432/db
+            DATABASE_URL: postgres://admin:admin@postgres:5432/db
             NODE_ENV: development
-            PORT: 4040
+            PORT: 3000
         ports:
-            - 4040:4040
+            - "3000:3000"
         command: sh -c "npm install && npm run dev"
         volumes:
             - .:/usr/src/app/
             - /app/node_modules
+
     postgres:
         image: postgres:10.4
         ports:
-            - "35431:5432"
+            - "35432:5432"
         environment:
-            POSTGRES_USER: user
-            POSTGRES_PASSWORD: pass
+            POSTGRES_USER: admin
+            POSTGRES_PASSWORD: admin
             POSTGRES_DB: db
         volumes:
             - ./db/database-seed.sql:/docker-entrypoint-initdb.d/database-seed.sql
