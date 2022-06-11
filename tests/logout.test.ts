@@ -25,7 +25,7 @@ app = Routes.mountApi(app);
 describe('Test login user', () => {
 
     const user = {
-        username: "aangeles@litystyles.com",
+        username: "admin@test.com",
         password: "admin2807"
     }
 

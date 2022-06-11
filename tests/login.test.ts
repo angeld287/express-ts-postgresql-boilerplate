@@ -22,7 +22,7 @@ app = Routes.mountApi(app);
 
 describe('Test login user', () => {
     const user = {
-        username: "aangeles@litystyles.com",
+        username: "admin@test.com",
         password: "admin2807"
     }
 
@@ -74,7 +74,7 @@ describe('Test login user', () => {
 
 
     test('It should respond "Password cannot be blank" when password is blank', async () => {
-        user.username = 'aangeles@litystyles.com';
+        user.username = 'admin@test.com';
         user.password = ""
 
         const response = await request(app)

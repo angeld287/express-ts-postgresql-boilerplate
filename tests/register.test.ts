@@ -11,7 +11,7 @@ app = Routes.mountApi(app);
 describe('Test register user', () => {
 
     const userRegister = {
-        email: "aangee21__@litystyles.com",
+        email: "admin2@test.com",
         username: "angeles6_4222507",
         phoneNumber: "8293619108",
         password: "admin2807",
@@ -217,7 +217,7 @@ describe('Test register user', () => {
 
     test('It should respond "The email: XXXXXX already exist." when the email already exist in the db', async () => {
         userRegister.gender = "M"
-        userRegister.email = "aangeles@litystyles.com"
+        userRegister.email = "admin@test.com"
 
         const response = await request(app)
             .post('/api/auth/register')
@@ -232,7 +232,7 @@ describe('Test register user', () => {
     });
 
     test('It should respond "The phoneNumber: 00000000 already exist." when the email already exist in the db', async () => {
-        userRegister.email = "jmarte@litystyles.com"
+        userRegister.email = "jmarte@test.com"
         userRegister.phoneNumber = "8293619108"
 
         const response = await request(app)
