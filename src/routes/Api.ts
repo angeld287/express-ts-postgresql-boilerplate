@@ -9,6 +9,7 @@ import { Router } from 'express';
 import LoginController from '../controllers/Api/Auth/Login'
 import RegisterController from '../controllers/Api/Auth/Register'
 import LogoutController from '../controllers/Api/Auth/Logout';
+import Passport from '../providers/Passport';
 
 const router = Router();
 
@@ -54,7 +55,7 @@ router.post(
 
 router.post(
     '/authPage',
-    //Passport.isAuthenticated,
+    Passport.isAuthenticated,
     (req: any, res: any) => {
         return res.status(200).json({
             msg: 'Authorized!',

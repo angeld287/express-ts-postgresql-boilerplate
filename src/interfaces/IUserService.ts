@@ -8,6 +8,10 @@ export interface IUserService {
 
     validateUser(email: string, password: string): Promise<any>;
 
+    getUserById(id: number): Promise<any>;
+
+    getUserByEmail(email: string): Promise<any>;
+
     verifyIfEmailExist(email: string): Promise<any>;
 
     verifyIfPhoneNumberExist(phoneNumber: string): Promise<any>;

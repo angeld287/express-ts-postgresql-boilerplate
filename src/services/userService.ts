@@ -37,6 +37,54 @@ class userService implements IUserService {
     }
 
     /*
+    * Query to get user by id
+    * @param id: user id in the db
+    * @return User model with data
+    */
+    async getUserById(id: number): Promise<any> {
+        const getQuery = {
+            name: 'fetch-user-by-id',
+            text: 'select * from public.users where id = $1',
+            values: [id],
+        }
+        let result = null;
+        try {
+            result = await Database.sqlToDB(getQuery);
+            if (result.rows.length > 0) {
+                return result.rows[0];
+            } else {
+                return false;
+            }
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    /*
+    * Query to get user by id
+    * @param email: the user email
+    * @return User model with data
+    */
+    async getUserByEmail(email: string): Promise<any> {
+        const getQuery = {
+            name: 'fetch-user-by-email',
+            text: 'select * from public.users where email = $1',
+            values: [email],
+        }
+        let result = null;
+        try {
+            result = await Database.sqlToDB(getQuery);
+            if (result.rows.length > 0) {
+                return result.rows[0];
+            } else {
+                return false;
+            }
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    /*
     * Query to verify if Email is in the database
     * @param email: email of the user
     * @return : returns an object with the result
