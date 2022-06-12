@@ -49,13 +49,12 @@ class Passport {
 	}
 
 	public isAuthenticated(req, res, next): any {
-		console.log(req.isAuthenticated())
 		if (req.isAuthenticated()) {
 			return next();
 		}
 
 		return res.status(401).json({
-			msg: 'Debe autenticarse!',
+			msg: 'Must be authenticated!',
 		});
 	}
 

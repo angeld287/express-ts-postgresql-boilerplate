@@ -18,6 +18,10 @@ export interface IRequest extends Request {
 }
 
 interface Session extends sessions.Session {
+	passport: Passport;
+}
+
+interface Passport {
 	user: IUser;
 	token: string;
 }

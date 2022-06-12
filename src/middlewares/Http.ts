@@ -13,6 +13,7 @@ import * as session from 'express-session';
 
 import Log from './Log';
 import Locals from '../providers/Locals';
+import Passport from '../providers/Passport';
 //import Passport from '../providers/Passport';
 
 class Http {
@@ -52,7 +53,7 @@ class Http {
 		_express.use(compress());
 
 		// Loads the passport configuration
-		//_express = Passport.mountPackage(_express);
+		_express = Passport.mountPackage(_express);
 
 		return _express;
 	}

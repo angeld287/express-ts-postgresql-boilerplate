@@ -15,6 +15,8 @@ class Logout {
 				Log.error(`Error : Failed to destroy the session during logout ` + err);
 			}
 
+			//req.logout();
+
 			return res.status(200).json({
 				msg: 'The session has been closed successfully',
 				session: req.session

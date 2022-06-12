@@ -12,11 +12,12 @@ import IUser from "../../../interfaces/models/User";
 import IUserService from "../../../interfaces/IUserService";
 import userService from '../../../services/userService';
 import Locals from '../../../providers/Locals'
-import { IResponse, IRequest } from '../../../interfaces/vendors';
+var passport = require('passport');
+import { IResponse, IRequest, INext } from '../../../interfaces/vendors';
 
 
 class Login {
-    public static async perform(req: IRequest, res: IResponse): Promise<any> {
+    public static async perform(req: IRequest, res: IResponse, next: INext): Promise<any> {
         try {
             const errors = validationResult(req);
             let user: IUserService = new userService();
@@ -29,6 +30,7 @@ class Login {
 
             const _username = req.body.username.toLowerCase();
             const _password = Encryptions.hash(req.body.password);
+            req.body.password = _password;
 
             const _user = await user.validateUser(_username, _password);
 
@@ -62,13 +64,28 @@ class Login {
                 userName: _user.user_name,
             };
 
-            req.session.token = token;
-            req.session.user = userObject;
+            passport.authenticate('local', (err, user, info) => {
+                Log.info('Here in the login controller #2!');
 
-            return res.json({
-                _user: req.session.user,
-                token: req.session.token,
-            });
+                if (err) {
+                    return next(err);
+                }
+
+                if (info) {
+                    return res.json({
+                        error: true,
+                        msg: info.message || info.msg,
+                    });
+                }
+
+                return req.logIn({ token, user: userObject }, () => {
+                    return res.json({
+                        _user: req.session.passport.user,
+                        token: req.session.passport.token,
+                    })
+                });
+
+            })(req, res, next);
 
         } catch (error) {
             Log.error(`Internal Server Error ` + error);
