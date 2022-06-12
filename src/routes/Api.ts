@@ -52,4 +52,14 @@ router.post(
     LogoutController.perform
 );
 
+router.post(
+    '/authPage',
+    //Passport.isAuthenticated,
+    (req: any, res: any) => {
+        return res.status(200).json({
+            msg: 'Authorized!',
+        });
+    }
+);
+
 export default router;
