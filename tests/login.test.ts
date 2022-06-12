@@ -22,7 +22,7 @@ app = Routes.mountApi(app);
 
 describe('Test login user', () => {
     const user = {
-        username: "admin@test.com",
+        username: "existingadmin@test.com",
         password: "admin2807"
     }
 
@@ -58,7 +58,7 @@ describe('Test login user', () => {
     });
 
     test('It should respond "E-mail is not valid" when email is invalid', async () => {
-        user.username = "usuariosinarroba"
+        user.username = "existingadmin"
 
         const response = await request(app)
             .post('/api/auth/login')
@@ -74,7 +74,7 @@ describe('Test login user', () => {
 
 
     test('It should respond "Password cannot be blank" when password is blank', async () => {
-        user.username = 'admin@test.com';
+        user.username = 'existingadmin@test.com';
         user.password = ""
 
         const response = await request(app)
@@ -90,7 +90,7 @@ describe('Test login user', () => {
     });
 
     test('It should respond "Password length must be atleast 8 characters." when password is invalid', async () => {
-        user.password = "3"
+        user.password = "34"
 
         const response = await request(app)
             .post('/api/auth/login')
@@ -105,8 +105,8 @@ describe('Test login user', () => {
     });
 
     test('It should respond "Invalid Username or Password." when password is invalid', async () => {
-        user.username = "jdavid@hotmail.com"
-        user.password = "admin2807"
+        user.username = "existingadmin@test.com"
+        user.password = "admin2809"
 
         const response = await request(app)
             .post('/api/auth/login')

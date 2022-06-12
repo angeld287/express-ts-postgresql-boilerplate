@@ -92,3 +92,13 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.user_pictures
     OWNER to admin;
+
+--INSERT INTO public.users(
+--	email, user_name, phone_number, user_password, fullname, gender)
+--	VALUES (
+--		'existingAdmin@test.com', 
+--		'existingAdmin', 
+--		'8095445501', 
+--		'78ca89fb969778e1044c06659fb077bdb4b77d1d6b0c0466e53233d73361a280                                    ', 
+--		'User Admin For Tests', 
+--		'M');

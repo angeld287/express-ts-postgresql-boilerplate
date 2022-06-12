@@ -11,12 +11,12 @@ app = Routes.mountApi(app);
 describe('Test register user', () => {
 
     const userRegister = {
-        email: "admin2@test.com",
-        username: "angeles6_4222507",
-        phoneNumber: "8293619108",
-        password: "admin2807",
-        confirmPassword: "admin2807",
-        fullName: "Angel Daniel Angeles",
+        email: "admin@test.com",
+        username: "adminUserName",
+        phoneNumber: "8095445500",
+        password: "adminPass22",
+        confirmPassword: "adminPass22",
+        fullName: "User Admin For Tests",
         gender: "m"
     }
 
@@ -41,7 +41,7 @@ describe('Test register user', () => {
     /* EMAIL VALIDATIONS */
 
     test('It should respond "E-mail cannot be blank" when email is blank', async () => {
-        userRegister.username = "testUser"
+        userRegister.username = "adminUserName"
         userRegister.email = ""
 
         const response = await request(app)
@@ -57,8 +57,8 @@ describe('Test register user', () => {
     });
 
     test('It should respond "E-mail is not valid" when email has invalid format', async () => {
-        userRegister.username = "testuser"
-        userRegister.email = "bademail"
+        userRegister.username = "adminUserName"
+        userRegister.email = "admin"
 
         const response = await request(app)
             .post('/api/auth/register')
@@ -76,7 +76,7 @@ describe('Test register user', () => {
     /* PHONENUMBER VALIDATIONS */
 
     test('It should respond "Phone Number cannot be blank" when Phone Number is blank', async () => {
-        userRegister.email = "goodemail@gmail.com"
+        userRegister.email = "admin@test.com"
         userRegister.phoneNumber = ""
 
         const response = await request(app)
@@ -93,7 +93,7 @@ describe('Test register user', () => {
 
 
     test('It should respond "invalid Phone Number format" when Phone Number has invalid format', async () => {
-        userRegister.phoneNumber = "3222"
+        userRegister.phoneNumber = "809544"
 
         const response = await request(app)
             .post('/api/auth/register')
@@ -111,7 +111,7 @@ describe('Test register user', () => {
     /* PASSWORD VALIDATIONS */
 
     test('It should respond "Password cannot be blank" when password is blank', async () => {
-        userRegister.phoneNumber = "8293619108"
+        userRegister.phoneNumber = "8095445500"
         userRegister.password = ""
 
         const response = await request(app)
@@ -142,7 +142,7 @@ describe('Test register user', () => {
     });
 
     test('It should respond "Confirmation Password cannot be blank" when Confirmation Password is blank', async () => {
-        userRegister.password = "userAdmin22"
+        userRegister.password = "adminPass22"
         userRegister.confirmPassword = ""
 
         const response = await request(app)
@@ -159,8 +159,8 @@ describe('Test register user', () => {
 
 
     test('It should respond "Passwords dont match" when Password and Confirmation Password doesnt match', async () => {
-        userRegister.password = "userAdmin22"
-        userRegister.confirmPassword = "userAdmin23"
+        userRegister.password = "adminPass22"
+        userRegister.confirmPassword = "adminPass23"
 
         const response = await request(app)
             .post('/api/auth/register')
@@ -178,7 +178,7 @@ describe('Test register user', () => {
     /* FULLNAME VALIDATIONS */
 
     test('It should respond "fullName cannot be blank." when fullName is blank', async () => {
-        userRegister.confirmPassword = "userAdmin22"
+        userRegister.confirmPassword = "adminPass22"
         userRegister.fullName = ""
 
         const response = await request(app)
@@ -197,7 +197,7 @@ describe('Test register user', () => {
     /* GENDER VALIDATIONS */
 
     test('It should respond "Gender cannot be blank." when Gender is blank', async () => {
-        userRegister.fullName = "Usuario Prueba"
+        userRegister.fullName = "User Admin For Tests"
         userRegister.gender = ""
 
         const response = await request(app)
@@ -217,7 +217,7 @@ describe('Test register user', () => {
 
     test('It should respond "The email: XXXXXX already exist." when the email already exist in the db', async () => {
         userRegister.gender = "M"
-        userRegister.email = "admin@test.com"
+        userRegister.email = "existingadmin@test.com"
 
         const response = await request(app)
             .post('/api/auth/register')
@@ -232,8 +232,8 @@ describe('Test register user', () => {
     });
 
     test('It should respond "The phoneNumber: 00000000 already exist." when the email already exist in the db', async () => {
-        userRegister.email = "jmarte@test.com"
-        userRegister.phoneNumber = "8293619108"
+        userRegister.email = "admin@test.com"
+        userRegister.phoneNumber = "8095445501"
 
         const response = await request(app)
             .post('/api/auth/register')
@@ -249,8 +249,8 @@ describe('Test register user', () => {
 
 
     test('It should respond "The userName: XXXXX already exist." when the email already exist in the db', async () => {
-        userRegister.phoneNumber = "8293619109"
-        userRegister.username = "angeles6_4222507"
+        userRegister.phoneNumber = "8095445500"
+        userRegister.username = "existingAdmin"
 
         const response = await request(app)
             .post('/api/auth/register')
