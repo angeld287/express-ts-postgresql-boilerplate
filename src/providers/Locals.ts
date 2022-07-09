@@ -19,12 +19,16 @@ class Locals {
         const appSecret = process.env.APP_SECRET || 'secret_key';
         const apiPrefix = process.env.API_PREFIX || 'api';
 
+        //allow origin cors
+        const url = 'http://localhost:3000';
+
 
         return {
             apiPrefix,
             appSecret,
             port,
-            dbUrl: DATABASE_URL
+            dbUrl: DATABASE_URL,
+            url
         }
     }
 

@@ -4,6 +4,7 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
+import { SuccessResponse } from '../../../core/ApiResponse';
 import { IRequest, IResponse } from '../../../interfaces/vendors';
 import Log from '../../../middlewares/Log';
 
@@ -16,11 +17,10 @@ class Logout {
 			}
 
 			//req.logout();
-
-			return res.status(200).json({
-				msg: 'The session has been closed successfully',
+			return new SuccessResponse('Success', {
+				message: 'The session has been closed successfully',
 				session: req.session
-			});
+			}).send(res);
 		});
 	}
 }

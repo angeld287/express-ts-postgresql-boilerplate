@@ -11,7 +11,7 @@ import userService from '../userService';
 
 class Local {
 	public static init(_passport: any): any {
-		_passport.use(new Strategy({}, (username, password, done) => {
+		_passport.use(new Strategy({}, (username: string, password: string, done: any) => {
 			Log.info(`Email is ${username}`);
 			Log.info(`Password is ${password}`);
 

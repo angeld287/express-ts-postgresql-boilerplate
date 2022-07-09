@@ -1,9 +1,10 @@
-
 const request = require('supertest');
 import Routes from '../src/providers/Routes';
 import express from 'express'
 import Locals from '../src/providers/Locals';
 import session from 'express-session';
+import Passport from '../src/providers/Passport';
+import passport from 'passport';
 
 let app: express.Application = express();
 app.use(express.json());
@@ -19,8 +20,9 @@ const options = {
 
 app.use(session(options))
 
-app = Routes.mountApi(app);
+app = Passport.mountPackage(app, passport);
 
+app = Routes.mountApi(app);
 
 describe('Test login user', () => {
 
@@ -36,14 +38,15 @@ describe('Test login user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        expect(loginResponse.body.token).toBeDefined()
+        expect(loginResponse.body.data.session).toBeDefined()
 
         const response = await request(app)
             .post('/api/auth/logout')
+            .set('Cookie', loginResponse.header['set-cookie'])
             .expect('Content-Type', /json/)
             .expect(200);
 
-        expect(response.body.token).toBeUndefined()
+        expect(response.body.data.session).toBeUndefined()
     });
 
 })

@@ -9,7 +9,9 @@ import { Router } from 'express';
 import LoginController from '../controllers/Api/Auth/Login'
 import RegisterController from '../controllers/Api/Auth/Register'
 import LogoutController from '../controllers/Api/Auth/Logout';
+import PageSource from '../controllers/Api/Pages/PageSource';
 import Passport from '../providers/Passport';
+import Session from '../controllers/Api/Auth/Session';
 
 const router = Router();
 
@@ -54,13 +56,15 @@ router.post(
 );
 
 router.post(
-    '/authPage',
+    '/getPageSource',
+    body('url', 'url cannot be blank.').notEmpty(),
     Passport.isAuthenticated,
-    (req: any, res: any) => {
-        return res.status(200).json({
-            msg: 'Authorized!',
-        });
-    }
+    PageSource.getPageSource
+);
+
+router.get(
+    '/auth/getsession',
+    Session.perform
 );
 
 export default router;

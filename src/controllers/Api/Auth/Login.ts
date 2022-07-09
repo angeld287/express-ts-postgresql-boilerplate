@@ -6,26 +6,33 @@
 
 import Encryptions from '../../../providers/Encryptions'
 
-import { validationResult } from 'express-validator';
 import Log from '../../../middlewares/Log';
 import IUser from "../../../interfaces/models/User";
 import IUserService from "../../../interfaces/IUserService";
 import userService from '../../../services/userService';
-import Locals from '../../../providers/Locals'
 var passport = require('passport');
 import { IResponse, IRequest, INext } from '../../../interfaces/vendors';
+import { AuthFailureResponse, SuccessResponse } from '../../../core/ApiResponse';
+import ExpressValidator from '../../../providers/ExpressValidation';
 
 
 class Login {
+
+    /**
+     * Execute the action of login an user if the inputs are valid
+     * @param {string} req: get the request from the post
+     * @param {string} res: the response expected by the post
+     * @return {Promise<>} return a promise with the json result
+     */
     public static async perform(req: IRequest, res: IResponse, next: INext): Promise<any> {
         try {
-            const errors = validationResult(req);
+            const errors = new ExpressValidator().validator(req);
             let user: IUserService = new userService();
 
             if (!errors.isEmpty()) {
-                return res.json({
+                return new SuccessResponse('Success', {
                     errors: errors.array()
-                });
+                }).send(res);
             }
 
             const _username = req.body.username.toLowerCase();
@@ -35,19 +42,11 @@ class Login {
             const _user = await user.validateUser(_username, _password);
 
             if (_user === false) {
-                return res.json({
+
+                return new SuccessResponse('Success', {
                     error: true,
                     message: 'Invalid Username or Password',
-                });
-            }
-
-            const token = await Encryptions.signEmailPasswordToken(_username, _password, Locals.config().appSecret);
-
-            if (token === false) {
-                return res.json({
-                    error: true,
-                    token: 'An error was occurred while generating the user token',
-                });
+                }).send(res);
             }
 
             Log.info(`New user logged ` + _username);
@@ -64,7 +63,7 @@ class Login {
                 userName: _user.user_name,
             };
 
-            passport.authenticate('local', (err, user, info) => {
+            passport.authenticate('local', (err: any, user: any, info: any) => {
                 Log.info('Here in the login controller #2!');
 
                 if (err) {
@@ -72,26 +71,25 @@ class Login {
                 }
 
                 if (info) {
-                    return res.json({
+                    return new AuthFailureResponse('Validation Error', {
                         error: true,
-                        msg: info.message || info.msg,
-                    });
+                        message: info.message || info.msg,
+                    }).send(res);
                 }
 
-                return req.logIn({ token, user: userObject }, () => {
-                    return res.json({
-                        _user: req.session.passport.user,
-                        token: req.session.passport.token,
-                    })
+                return req.logIn({ ...userObject }, () => {
+                    return new SuccessResponse('Success', {
+                        session: req.session.passport.user,
+                    }).send(res);
                 });
 
             })(req, res, next);
 
         } catch (error) {
             Log.error(`Internal Server Error ` + error);
-            return res.status(500).json({
+            return new AuthFailureResponse('Validation Error', {
                 error: 'Internal Server Error',
-            });
+            }).send(res);
         }
     }
 }

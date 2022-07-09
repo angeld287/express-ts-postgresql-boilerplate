@@ -14,6 +14,7 @@ import * as session from 'express-session';
 import Log from './Log';
 import Locals from '../providers/Locals';
 import Passport from '../providers/Passport';
+import CORS from './CORS';
 //import Passport from '../providers/Passport';
 
 class Http {
@@ -47,7 +48,7 @@ class Http {
 		_express.use(session(options));
 
 		// Enables the CORS
-		_express.use(cors());
+		_express = CORS.mount(_express);
 
 		// Enables the "gzip" / "deflate" compression for response
 		_express.use(compress());

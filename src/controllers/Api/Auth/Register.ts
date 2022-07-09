@@ -4,11 +4,14 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
-import { validationResult } from 'express-validator';
+import Encryptions from '../../../providers/Encryptions'
 import IUserService from '../../../interfaces/IUserService';
 import { IRequest, IResponse } from '../../../interfaces/vendors';
 import Log from '../../../middlewares/Log';
 import userService from '../../../services/userService';
+import { IUserExistenceVerificationResponse } from '../../../interfaces/response/UserResponses';
+import { BadRequestResponse, InternalErrorResponse, SuccessResponse } from '../../../core/ApiResponse';
+import ExpressValidator from '../../../providers/ExpressValidation';
 
 class Register {
     /**
@@ -19,23 +22,23 @@ class Register {
      */
     public static async perform(req: IRequest, res: IResponse): Promise<any> {
         try {
-            const errors = validationResult(req);
+            const errors = new ExpressValidator().validator(req);
             let user: IUserService = new userService()
 
             if (!errors.isEmpty()) {
-                return res.json({
+                return new SuccessResponse('Success', {
                     errors: errors.array()
-                });
+                }).send(res);
             }
 
             const _email = req.body.email;
             const _phoneNumber = req.body.phoneNumber;
             const _userName = req.body.username;
-            const _password = req.body.password;
+            const _password = Encryptions.hash(req.body.password);
             const _fullName = req.body.fullName;
             const _gender = req.body.gender;
 
-            const existenceVerifications = await Promise.all(
+            const existenceVerifications: Array<IUserExistenceVerificationResponse> = await Promise.all(
                 [
                     user.verifyIfEmailExist(_email),
                     user.verifyIfPhoneNumberExist(_phoneNumber),
@@ -44,31 +47,31 @@ class Register {
             );
 
             if (existenceVerifications.filter(_ => _.exist).length > 0) {
-                return res.json({
+                return new SuccessResponse('Success', {
                     errors: existenceVerifications.filter(_ => _.exist)
-                });
+                }).send(res);
             }
 
             const createUser = await user.createNewUser(_email, _phoneNumber, _password, _fullName, _gender, _userName, null);
 
             if (createUser.created) {
                 Log.info(`New user created ` + _userName);
-                return res.json({
+                return new SuccessResponse('Success', {
                     userId: createUser.id,
                     message: 'The user has been created successfully'
-                });
+                }).send(res);
             } else {
                 Log.error(`An error was occurred while creating the user`);
-                return res.status(500).json({
+                return new InternalErrorResponse('Validation Error', {
                     error: 'An error was occurred while creating the user',
-                });
+                }).send(res);
             }
 
         } catch (error) {
             Log.error(`Internal Server Error ` + error);
-            return res.status(500).json({
+            return new InternalErrorResponse('Validation Error', {
                 error: 'Internal Server Error',
-            });
+            }).send(res);
         }
     }
 

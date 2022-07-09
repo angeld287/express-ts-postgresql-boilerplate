@@ -16,7 +16,8 @@ class CORS {
 
 		const options = {
 			origin: Locals.config().url,
-			optionsSuccessStatus: 200		// Some legacy browsers choke on 204
+			optionsSuccessStatus: 200,		// Some legacy browsers choke on 204
+			credentials: true
 		};
 
 		_express.use(cors(options));

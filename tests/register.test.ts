@@ -1,4 +1,4 @@
-
+//import '@types/jest'
 const request = require('supertest');
 import Routes from '../src/providers/Routes';
 import express from 'express'
@@ -31,8 +31,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Username cannot be blank.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("Username cannot be blank.");
         }
 
     });
@@ -51,7 +51,7 @@ describe('Test register user', () => {
             .expect(200);
 
         if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("E-mail cannot be blank.");
+            expect(response.body.errors[0].message).toStrictEqual("E-mail cannot be blank.");
         }
 
     });
@@ -67,7 +67,7 @@ describe('Test register user', () => {
             .expect(200);
 
         if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("E-mail is not valid.");
+            expect(response.body.data.errors[0].message).toStrictEqual("E-mail is not valid.");
         }
 
     });
@@ -85,8 +85,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Phone Number cannot be blank.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("Phone Number cannot be blank.");
         }
 
     });
@@ -101,8 +101,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("invalid Phone Number format.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("invalid Phone Number format.");
         }
 
     });
@@ -120,8 +120,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Password cannot be blank.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("Password cannot be blank.");
         }
 
     });
@@ -135,8 +135,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Password length must be atleast 8 characters.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("Password length must be atleast 8 characters.");
         }
 
     });
@@ -151,8 +151,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Confirmation Password cannot be blank.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("Confirmation Password cannot be blank.");
         }
 
     });
@@ -168,8 +168,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Passwords don't match.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("Passwords don't match.");
         }
 
     });
@@ -187,8 +187,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("fullName cannot be blank.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("fullName cannot be blank.");
         }
 
     });
@@ -206,8 +206,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Gender cannot be blank.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("Gender cannot be blank.");
         }
 
     });
@@ -225,8 +225,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("The email: " + userRegister.email + " already exist.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("The email: " + userRegister.email + " already exist.");
         }
 
     });
@@ -241,8 +241,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("The phoneNumber: " + userRegister.phoneNumber + " already exist.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("The phoneNumber: " + userRegister.phoneNumber + " already exist.");
         }
 
     });
@@ -258,8 +258,8 @@ describe('Test register user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("The userName: " + userRegister.username + " already exist.");
+        if (response.body.data.errors !== undefined) {
+            expect(response.body.data.errors[0].message).toStrictEqual("The userName: " + userRegister.username + " already exist.");
         }
 
     });
@@ -273,13 +273,13 @@ describe('Test register user', () => {
     //        .expect('Content-Type', /json/)
     //        .expect(200);
     //
-    //    expect(response.body._user).toHaveProperty('email')
-    //    expect(response.body._user).toHaveProperty('phoneNumber')
-    //    expect(response.body._user).toHaveProperty('passwordResetToken')
-    //    expect(response.body._user).toHaveProperty('passwordResetExpires')
-    //    expect(response.body._user).toHaveProperty('fullname')
-    //    expect(response.body._user).toHaveProperty('gender')
-    //    expect(response.body._user).toHaveProperty('userName')
+    //    expect(response.body.data.session.user).toHaveProperty('email')
+    //    expect(response.body.data.session.user).toHaveProperty('phoneNumber')
+    //    expect(response.body.data.session.user).toHaveProperty('passwordResetToken')
+    //    expect(response.body.data.session.user).toHaveProperty('passwordResetExpires')
+    //    expect(response.body.data.session.user).toHaveProperty('fullname')
+    //    expect(response.body.data.session.user).toHaveProperty('gender')
+    //    expect(response.body.data.session.user).toHaveProperty('userName')
     //});
 
 })

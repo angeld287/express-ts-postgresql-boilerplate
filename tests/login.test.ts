@@ -1,9 +1,10 @@
-
 const request = require('supertest');
 import Routes from '../src/providers/Routes';
 import express from 'express'
 import session from 'express-session';
 import Locals from '../src/providers/Locals';
+import Passport from '../src/providers/Passport';
+import passport from 'passport';
 
 let app: express.Application = express();
 app.use(express.json());
@@ -17,6 +18,7 @@ const options = {
 };
 
 app.use(session(options))
+app = Passport.mountPackage(app, passport);
 app = Routes.mountApi(app);
 
 
@@ -33,13 +35,13 @@ describe('Test login user', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
-        expect(response.body._user).toHaveProperty('email')
-        expect(response.body._user).toHaveProperty('phoneNumber')
-        expect(response.body._user).toHaveProperty('passwordResetToken')
-        expect(response.body._user).toHaveProperty('passwordResetExpires')
-        expect(response.body._user).toHaveProperty('fullname')
-        expect(response.body._user).toHaveProperty('gender')
-        expect(response.body._user).toHaveProperty('userName')
+        expect(response.body.data.session).toHaveProperty('email')
+        expect(response.body.data.session).toHaveProperty('phoneNumber')
+        expect(response.body.data.session).toHaveProperty('passwordResetToken')
+        expect(response.body.data.session).toHaveProperty('passwordResetExpires')
+        expect(response.body.data.session).toHaveProperty('fullname')
+        expect(response.body.data.session).toHaveProperty('gender')
+        expect(response.body.data.session).toHaveProperty('userName')
     });
 
     test('It should respond "E-mail cannot be blank" when email is blank', async () => {
@@ -52,7 +54,7 @@ describe('Test login user', () => {
             .expect(200);
 
         if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("E-mail cannot be blank.");
+            expect(response.body.data.errors[0].message).toStrictEqual("E-mail cannot be blank.");
         }
 
     });
@@ -67,7 +69,7 @@ describe('Test login user', () => {
             .expect(200);
 
         if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("E-mail is not valid.");
+            expect(response.body.data.errors[0].message).toStrictEqual("E-mail is not valid.");
         }
 
     });
@@ -84,7 +86,7 @@ describe('Test login user', () => {
             .expect(200);
 
         if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Password cannot be blank.");
+            expect(response.body.data.errors[0].message).toStrictEqual("Password cannot be blank.");
         }
 
     });
@@ -99,7 +101,7 @@ describe('Test login user', () => {
             .expect(200);
 
         if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Password length must be atleast 8 characters.");
+            expect(response.body.data.errors[0].message).toStrictEqual("Password length must be atleast 8 characters.");
         }
 
     });
@@ -115,7 +117,7 @@ describe('Test login user', () => {
             .expect(200);
 
         if (response.body.errors !== undefined) {
-            expect(response.body.errors[0].msg).toStrictEqual("Invalid Username or Password.");
+            expect(response.body.data.errors[0].message).toStrictEqual("Invalid Username or Password.");
         }
 
     });

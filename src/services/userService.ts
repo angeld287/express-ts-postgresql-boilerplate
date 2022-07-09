@@ -7,6 +7,7 @@
 import Database from '../providers/Database';
 import { IUser, UserPictures, FederatedAuthProfiles, Tokens } from '../interfaces/models/User';
 import { IUserService } from '../interfaces/IUserService';
+import { IUserExistenceVerificationResponse } from '../interfaces/response/UserResponses';
 
 class userService implements IUserService {
 
@@ -16,7 +17,7 @@ class userService implements IUserService {
     * @param password: password hash of the user
     * @return User model with data
     */
-    async validateUser(email: string, password: string): Promise<any> {
+    async validateUser(email: string, password: string): Promise<any | ErrorConstructor> {
         const loginQuery = {
             name: 'fetch-user-by-mail-password',
             text: 'select * from public.users where email = $1 and user_password = $2',
@@ -41,7 +42,7 @@ class userService implements IUserService {
     * @param id: user id in the db
     * @return User model with data
     */
-    async getUserById(id: number): Promise<any> {
+    async getUserById(id: number): Promise<any | ErrorConstructor> {
         const getQuery = {
             name: 'fetch-user-by-id',
             text: 'select * from public.users where id = $1',
@@ -65,7 +66,7 @@ class userService implements IUserService {
     * @param email: the user email
     * @return User model with data
     */
-    async getUserByEmail(email: string): Promise<any> {
+    async getUserByEmail(email: string): Promise<any | ErrorConstructor> {
         const getQuery = {
             name: 'fetch-user-by-email',
             text: 'select * from public.users where email = $1',
@@ -89,20 +90,20 @@ class userService implements IUserService {
     * @param email: email of the user
     * @return : returns an object with the result
     */
-    async verifyIfEmailExist(email: string): Promise<any> {
+    async verifyIfEmailExist(email: string): Promise<IUserExistenceVerificationResponse | ErrorConstructor> {
         const verifyQuery = {
             name: 'verify-email-exist',
             text: 'SELECT email FROM public.users where email = $1',
             values: [email],
         }
 
-        let result = null;
+        let execution = null;
         try {
-            result = await Database.sqlToDB(verifyQuery);
-            if (result.rows.length === 0) {
-                return { exist: false, msg: null };
+            execution = await Database.sqlToDB(verifyQuery);
+            if (execution.rows.length === 0) {
+                return { exist: false, message: null };
             } else {
-                return { exist: true, msg: `The email: ${email} already exist.` };
+                return { exist: true, message: `The email: ${email} already exist.` };
             }
         } catch (error) {
             throw new Error(error.message);
@@ -114,19 +115,19 @@ class userService implements IUserService {
     * @param phoneNumber: PhoneNumber of the user
     * @return : returns an object with the result
     */
-    async verifyIfPhoneNumberExist(phoneNumber: string): Promise<any> {
+    async verifyIfPhoneNumberExist(phoneNumber: string): Promise<IUserExistenceVerificationResponse | ErrorConstructor> {
         const verifyQuery = {
             name: 'verify-phoneNumber-exist',
             text: 'SELECT phone_number FROM public.users where phone_number = $1',
             values: [phoneNumber],
         }
-        let result = null;
+        let execution = null;
         try {
-            result = await Database.sqlToDB(verifyQuery);
-            if (result.rows.length === 0) {
-                return { exist: false, msg: null };
+            execution = await Database.sqlToDB(verifyQuery);
+            if (execution.rows.length === 0) {
+                return { exist: false, message: null };
             } else {
-                return { exist: true, msg: `The phoneNumber: ${phoneNumber} already exist.` };
+                return { exist: true, message: `The phoneNumber: ${phoneNumber} already exist.` };
             }
         } catch (error) {
             throw new Error(error.message);
@@ -138,19 +139,20 @@ class userService implements IUserService {
     * @param username: username of the user
     * @return : returns an object with the result
     */
-    async verifyIfUserNameExist(userName: string): Promise<any> {
+    async verifyIfUserNameExist(userName: string): Promise<IUserExistenceVerificationResponse | ErrorConstructor> {
         const verifyQuery = {
             name: 'verify-userName-exist',
             text: 'SELECT user_name FROM public.users where user_name = $1',
             values: [userName],
         }
-        let result = null;
+
+        let execution = null;
         try {
-            result = await Database.sqlToDB(verifyQuery);
-            if (result.rows.length === 0) {
-                return { exist: false, msg: null };
+            execution = await Database.sqlToDB(verifyQuery);
+            if (execution.rows.length === 0) {
+                return { exist: false, message: null };
             } else {
-                return { exist: true, msg: `The userName: ${userName} already exist.` };
+                return { exist: true, message: `The userName: ${userName} already exist.` };
             }
         } catch (error) {
             throw new Error(error.message);
@@ -162,7 +164,7 @@ class userService implements IUserService {
     * @param username: username of the user
     * @return : returns a boolean with the result
     */
-    async createNewUser(email: string, phoneNumber: string, userPassword: string, fullname: string, gender: string, userName: string, profile: number): Promise<any> {
+    async createNewUser(email: string, phoneNumber: string, userPassword: string, fullname: string, gender: string, userName: string, profile: number): Promise<any | ErrorConstructor> {
         const createTransaction = {
             name: 'create-new-user',
             text: 'INSERT INTO public.users(email, phone_number, user_password, fullname, gender, user_name, profile)VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id',

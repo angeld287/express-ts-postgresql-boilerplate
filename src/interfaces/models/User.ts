@@ -4,7 +4,9 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
-export interface IUser {
+import { Express } from 'express';
+
+export interface IUser extends Express.User {
     id: string;
     email?: string;
     phoneNumber?: string;
