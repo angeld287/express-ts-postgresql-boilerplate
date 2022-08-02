@@ -5,7 +5,6 @@
  */
 
 import Database from '../providers/Database';
-import { IUser, UserPictures, FederatedAuthProfiles, Tokens } from '../interfaces/models/User';
 import { IUserService } from '../interfaces/IUserService';
 import { IUserExistenceVerificationResponse } from '../interfaces/response/UserResponses';
 

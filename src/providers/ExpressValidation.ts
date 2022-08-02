@@ -4,7 +4,7 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
-import { ResultFactory, ValidationError, validationResult } from 'express-validator';
+import { ResultFactory, validationResult } from 'express-validator';
 import { IValidationError } from '../interfaces/response/IValidationError';
 
 class ExpressValidator {

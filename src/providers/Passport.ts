@@ -12,7 +12,6 @@ import LocalStrategy from '../services/strategies/Local';
 import Log from '../middlewares/Log';
 import IUserService from '../interfaces/IUserService';
 import userService from '../services/userService';
-import IUser from '../interfaces/models/User';
 import { IRequest, IResponse } from '../interfaces/vendors';
 import { AuthFailureResponse } from '../core/ApiResponse';
 

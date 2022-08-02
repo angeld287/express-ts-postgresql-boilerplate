@@ -10,7 +10,7 @@ import { IRequest, IResponse } from '../../../interfaces/vendors';
 import Log from '../../../middlewares/Log';
 import userService from '../../../services/userService';
 import { IUserExistenceVerificationResponse } from '../../../interfaces/response/UserResponses';
-import { BadRequestResponse, InternalErrorResponse, SuccessResponse } from '../../../core/ApiResponse';
+import { InternalErrorResponse, SuccessResponse } from '../../../core/ApiResponse';
 import ExpressValidator from '../../../providers/ExpressValidation';
 
 class Register {
