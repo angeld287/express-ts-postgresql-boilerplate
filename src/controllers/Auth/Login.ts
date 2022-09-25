@@ -18,6 +18,8 @@ import { INext, IRequest, IResponse } from '../../interfaces/vendors';
 class Login {
 
     public static show(req: IRequest, res: IResponse): any {
+        Log.info('Here in the login view!');
+        console.log('Here in the login view!');
         return res.render('pages/login', {
             title: 'LogIn'
         });
