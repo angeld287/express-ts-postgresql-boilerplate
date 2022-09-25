@@ -4,14 +4,14 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
-import Encryptions from '../../../providers/Encryptions'
-import IUserService from '../../../interfaces/IUserService';
-import { IRequest, IResponse } from '../../../interfaces/vendors';
-import Log from '../../../middlewares/Log';
-import userService from '../../../services/userService';
-import { IUserExistenceVerificationResponse } from '../../../interfaces/response/UserResponses';
-import { InternalErrorResponse, SuccessResponse } from '../../../core/ApiResponse';
-import ExpressValidator from '../../../providers/ExpressValidation';
+import Encryptions from '../../providers/Encryptions'
+import IUserService from '../../interfaces/IUserService';
+import { IRequest, IResponse } from '../../interfaces/vendors';
+import Log from '../../middlewares/Log';
+import userService from '../../services/userService';
+import { IUserExistenceVerificationResponse } from '../../interfaces/response/UserResponses';
+import { InternalErrorResponse, SuccessResponse } from '../../core/ApiResponse';
+import ExpressValidator from '../../providers/ExpressValidation';
 
 class Register {
 

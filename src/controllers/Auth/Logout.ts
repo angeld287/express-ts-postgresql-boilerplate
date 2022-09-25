@@ -4,9 +4,9 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
-import { SuccessResponse } from '../../../core/ApiResponse';
-import { IRequest, IResponse } from '../../../interfaces/vendors';
-import Log from '../../../middlewares/Log';
+import { SuccessResponse } from '../../core/ApiResponse';
+import { IRequest, IResponse } from '../../interfaces/vendors';
+import Log from '../../middlewares/Log';
 
 class Logout {
 	public static async perform(req: IRequest, res: IResponse): Promise<any> {
@@ -17,10 +17,9 @@ class Logout {
 			}
 
 			//req.logout();
-			return new SuccessResponse('Success', {
-				message: 'The session has been closed successfully',
-				session: req.session
-			}).send(res);
+			req.user = null
+			req.flash('success', { msg: 'The session has been closed successfully' });
+			return res.redirect('/');
 		});
 	}
 }

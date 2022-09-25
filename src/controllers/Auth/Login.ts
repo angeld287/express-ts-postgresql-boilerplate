@@ -4,16 +4,15 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
-import Encryptions from '../../../providers/Encryptions'
+import Encryptions from '../../providers/Encryptions'
 
-import Log from '../../../middlewares/Log';
-import IUser from "../../../interfaces/models/User";
-import IUserService from "../../../interfaces/IUserService";
-import userService from '../../../services/userService';
+import Log from '../../middlewares/Log';
+import IUser from "../../interfaces/models/User";
+import IUserService from "../../interfaces/IUserService";
+import userService from '../../services/userService';
 var passport = require('passport');
-import { IResponse, IRequest, INext } from '../../../interfaces/vendors';
-import { AuthFailureResponse, SuccessResponse } from '../../../core/ApiResponse';
-import ExpressValidator from '../../../providers/ExpressValidation';
+import ExpressValidator from '../../providers/ExpressValidation';
+import { INext, IRequest, IResponse } from '../../interfaces/vendors';
 
 
 class Login {
@@ -36,10 +35,11 @@ class Login {
             let user: IUserService = new userService();
 
             if (!errors.isEmpty()) {
-                return new SuccessResponse('Success', {
-                    errors: errors.array()
-                }).send(res);
+                req.flash('errors', errors);
+                return res.redirect('/login');
             }
+
+            Log.info('Here in the login controller #1!');
 
             const _username = req.body.username.toLowerCase();
             const _password = Encryptions.hash(req.body.password);
@@ -48,11 +48,11 @@ class Login {
             const _user = await user.validateUser(_username, _password);
 
             if (_user === false) {
-
-                return new SuccessResponse('Success', {
+                req.flash('errors', {
                     error: true,
                     message: 'Invalid Username or Password',
-                }).send(res);
+                });
+                return res.redirect('/login');
             }
 
             Log.info(`New user logged ` + _username);
@@ -77,25 +77,27 @@ class Login {
                 }
 
                 if (info) {
-                    return new AuthFailureResponse('Validation Error', {
+                    req.flash('errors', {
                         error: true,
                         message: info.message || info.msg,
-                    }).send(res);
+                    });
+                    return res.redirect('/login');
                 }
 
                 return req.logIn({ ...userObject }, () => {
-                    return new SuccessResponse('Success', {
-                        session: req.session.passport.user,
-                    }).send(res);
+                    req.flash('success', { msg: 'You are successfully logged in now!' });
+                    res.redirect('/account');
                 });
 
             })(req, res, next);
 
         } catch (error) {
             Log.error(`Internal Server Error ` + error);
-            return new AuthFailureResponse('Validation Error', {
-                error: 'Internal Server Error',
-            }).send(res);
+            req.flash('errors', {
+                error: true,
+                message: "Server Error"
+            });
+            return res.redirect('/login');
         }
     }
 }

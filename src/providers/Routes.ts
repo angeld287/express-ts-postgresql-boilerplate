@@ -7,9 +7,15 @@
 import { Application } from 'express';
 import Locals from './Locals';
 import apiRouter from './../routes/Api';
+import webRouter from './../routes/Web';
 import Log from '../middlewares/Log';
 
 class Routes {
+
+	public mountWeb(_express: Application): Application {
+		Log.info('Routes :: Mounting Web Routes...');
+		return _express.use('/', webRouter);
+	}
 
 	public mountApi(_express: Application): Application {
 		const apiPrefix = Locals.config().apiPrefix;
