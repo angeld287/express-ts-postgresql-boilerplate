@@ -20,8 +20,7 @@ class Locals {
         const apiPrefix = process.env.API_PREFIX || 'api';
 
         //allow origin cors
-        const url = 'http://localhost:3000';
-
+        const url = process.env.APP_URL || `http://localhost:${port}`;
 
         return {
             apiPrefix,
