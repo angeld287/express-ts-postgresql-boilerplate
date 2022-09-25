@@ -9,6 +9,8 @@ services:
         environment:
             DATABASE_URL: postgres://admin:admin@postgres:5432/db
             NODE_ENV: development
+            GOOGLE_ID: 123519622891-6eds7r9o2t43nfmg0mpgu4r7a9p28rip.apps.googleusercontent.com
+            GOOGLE_SECRET: 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
             PORT: 3000
         ports:
             - "3000:3000"
