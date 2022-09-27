@@ -18,8 +18,6 @@ import { INext, IRequest, IResponse } from '../../interfaces/vendors';
 class Login {
 
     public static show(req: IRequest, res: IResponse): any {
-        Log.info('Here in the login view!');
-        console.log('Here in the login view!');
         return res.render('pages/login', {
             title: 'LogIn'
         });
@@ -37,7 +35,7 @@ class Login {
             let user: IUserService = new userService();
 
             if (!errors.isEmpty()) {
-                req.flash('errors', errors);
+                req.flash('errors', errors.array());
                 return res.redirect('/login');
             }
 
@@ -45,15 +43,11 @@ class Login {
 
             const _username = req.body.username.toLowerCase();
             const _password = Encryptions.hash(req.body.password);
-            req.body.password = _password;
 
             const _user = await user.validateUser(_username, _password);
 
             if (_user === false) {
-                req.flash('errors', {
-                    error: true,
-                    message: 'Invalid Username or Password',
-                });
+                req.flash('errors', "Invalid Username or Password");
                 return res.redirect('/login');
             }
 

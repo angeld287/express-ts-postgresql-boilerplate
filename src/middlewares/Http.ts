@@ -22,6 +22,9 @@ class Http {
 		Log.info('Booting the \'HTTP\' middleware...');
 
 		// Enables the request body parser
+		_express.use(bodyParser.urlencoded({ extended: false }));
+		_express.use(bodyParser.json());
+
 		_express.use(express.json());
 
 		// Disable the x-powered-by header in response
