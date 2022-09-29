@@ -14,6 +14,26 @@ block content
 						input(type='hidden', name='_csrf', value=_csrf)
 						.control-group
 							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='signup-username') UserName
+								input#signup-email.form-control(type='text', name='username', placeholder='Username', required='required', data-validation-required-message='Please enter your desired username.', autocomplete='username')
+								p.help-block.text-danger
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='signup-phonenumber') Phone Number
+								input#signup-email.form-control(type='text', name='phonenumber', placeholder='Phone Number', required='required', data-validation-required-message='Please enter your phone number.', autocomplete='phonenumber')
+								p.help-block.text-danger
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='signup-fullname') Full Name
+								input#signup-email.form-control(type='text', name='fullname', placeholder='Full Name', required='required', data-validation-required-message='Please enter your full name.', autocomplete='fullname')
+								p.help-block.text-danger
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
+								label(for='signup-gender') Gender
+								input#signup-email.form-control(type='text', name='gender', placeholder='Gender', required='required', data-validation-required-message='Please enter your gender (M for male or F for female).', autocomplete='gender')
+								p.help-block.text-danger
+						.control-group
+							.form-group.floating-label-form-group.controls.mb-0.pb-2
 								label(for='signup-email') Email Address
 								input#signup-email.form-control(type='email', name='email', placeholder='Email Address', required='required', data-validation-required-message='Please enter your email address.', autocomplete='email')
 								p.help-block.text-danger

@@ -33,8 +33,10 @@ class Login {
         try {
             const errors = new ExpressValidator().validator(req);
             let user: IUserService = new userService();
+            console.log('Inicio');
 
             if (!errors.isEmpty()) {
+                console.log('Errores en Inputs');
                 req.flash('errors', errors.array());
                 return res.redirect('/login');
             }
@@ -47,10 +49,11 @@ class Login {
             const _user = await user.validateUser(_username, _password);
 
             if (_user === false) {
+                console.log('Usuario o pass invalidos');
                 req.flash('errors', "Invalid Username or Password");
                 return res.redirect('/login');
             }
-
+            console.log('Usuario Valido');
             Log.info(`New user logged ` + _username);
 
             let userObject: IUser = {
@@ -66,13 +69,16 @@ class Login {
             };
 
             passport.authenticate('local', (err: any, user: any, info: any) => {
+                console.log('Callback Authenticacion');
                 Log.info('Here in the login controller #2!');
 
                 if (err) {
+                    console.log('Error 1 autenticacion');
                     return next(err);
                 }
 
                 if (info) {
+                    console.log('Error Info autenticacion');
                     req.flash('errors', {
                         error: true,
                         message: info.message || info.msg,

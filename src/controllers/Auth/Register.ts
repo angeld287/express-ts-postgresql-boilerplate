@@ -29,6 +29,8 @@ class Register {
         try {
             const errors = new ExpressValidator().validator(req);
             let user: IUserService = new userService()
+            console.log(req.body);
+
 
             if (!errors.isEmpty()) {
                 req.flash('errors', errors);
