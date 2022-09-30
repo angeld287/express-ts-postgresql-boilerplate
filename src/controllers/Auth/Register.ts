@@ -33,6 +33,8 @@ class Register {
 
 
             if (!errors.isEmpty()) {
+                console.log('Inputs Errors');
+                console.log(errors);
                 req.flash('errors', errors);
                 return res.redirect('/signup');
             }
@@ -44,6 +46,8 @@ class Register {
             const _fullName = req.body.fullName;
             const _gender = req.body.gender;
 
+            console.log('Existence Verification');
+
             const existenceVerifications: Array<IUserExistenceVerificationResponse> = await Promise.all(
                 [
                     user.verifyIfEmailExist(_email),
@@ -53,6 +57,7 @@ class Register {
             );
 
             if (existenceVerifications.filter(_ => _.exist).length > 0) {
+                console.log('User Exist');
                 req.flash('errors', {
                     error: true,
                     errors: existenceVerifications.filter(_ => _.exist)
@@ -60,13 +65,16 @@ class Register {
                 return res.redirect('/signup');
             }
 
+            console.log('Creating User...');
             const createUser = await user.createNewUser(_email, _phoneNumber, _password, _fullName, _gender, _userName, null);
 
             if (createUser.created) {
+                console.log('User Created');
                 Log.info(`New user created ` + _userName);
                 req.flash('success', { msg: 'The user has been created successfully' });
                 res.redirect('/login');
             } else {
+                console.log('Error Creating user');
                 Log.error(`An error was occurred while creating the user`);
                 req.flash('errors', {
                     error: true,
@@ -76,6 +84,7 @@ class Register {
             }
 
         } catch (error) {
+            console.log('Try catch error');
             Log.error(`Internal Server Error ` + error);
             req.flash('errors', {
                 error: true,
