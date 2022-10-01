@@ -19,6 +19,8 @@ export interface IUserService {
     verifyIfUserNameExist(userName: string): Promise<any>;
 
     createNewUser(email: string, phoneNumber: string, userPassword: string, fullname: string, gender: string, userName: string, profile: number): Promise<any>;
+
+    getUserByGoogle(google: string): Promise<any | ErrorConstructor>;
 }
 
 export default IUserService;
