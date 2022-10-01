@@ -19,7 +19,7 @@ export interface IUser extends Express.User {
     pictures?: UserPictures[];
 
     fullname: string;
-    gender: string;
+    gender?: string;
     userName: string;
 }
 

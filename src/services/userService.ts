@@ -7,6 +7,7 @@
 import Database from '../providers/Database';
 import { IUserService } from '../interfaces/IUserService';
 import { IUserExistenceVerificationResponse } from '../interfaces/response/UserResponses';
+import IUser from '../interfaces/models/User';
 
 class userService implements IUserService {
 
@@ -101,11 +102,8 @@ class userService implements IUserService {
         let result = null;
         try {
             result = await Database.sqlToDB(getQuery);
-            if (result.rows.length > 0) {
-                return result.rows[0];
-            } else {
-                return false;
-            }
+
+            return result.rows.length > 0
         } catch (error) {
             throw new Error(error.message);
         }
@@ -217,6 +215,43 @@ class userService implements IUserService {
     }
 
     /*
+    * Transaction to create a new user from google
+    * @param IUser: User Model Interface
+    * @param profileId: The id of the FederatedAuthProfiles 
+    * @return : returns a boolean with the result
+    */
+    async createNewUserFromGoogle(user: IUser, profileId: number): Promise<any | ErrorConstructor> {
+        const createTransaction = {
+            name: 'create-new-user-from-google',
+            text: `
+            INSERT INTO public.users(
+            email, user_password, fullname, profile, user_name)
+            VALUES ($1, $2, $3, $4, $5)
+            RETURNING id;
+            `,
+            values: [user.email, user.password, user.fullname, profileId, user.userName],
+        }
+
+        let result = null, client = null;
+        try {
+            client = await Database.getTransaction();
+
+            try {
+                result = await Database.sqlExecSingleRow(client, createTransaction);
+                await Database.commit(client);
+            } catch (error) {
+                await Database.rollback(client);
+                throw new Error(error);
+            }
+
+            return { created: true, id: result.rows[0].id };
+
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    /*
     * Transaction to create a new user profile image
     * @param image_url: the image url
     * @param user_id: The is of the user to whom the image belongs
@@ -227,7 +262,8 @@ class userService implements IUserService {
             name: 'create-new-user-profile-image',
             text: `INSERT INTO public.user_pictures(
                     image_url, user_id)
-                    VALUES ($1, $2);
+                    VALUES ($1, $2)
+                    RETURNING id;
             `,
             values: [image_url, user_id],
         }
@@ -263,7 +299,8 @@ class userService implements IUserService {
             text: `
                     INSERT INTO public.federated_auth_profiles(
                     kind, profile_id)
-                    VALUES ($1, $2);
+                    VALUES ($1, $2)
+                    RETURNING id;
             `,
             values: [kind, profile_id],
         }
@@ -286,6 +323,7 @@ class userService implements IUserService {
             throw new Error(error.message);
         }
     }
+
 }
 
 export default userService;

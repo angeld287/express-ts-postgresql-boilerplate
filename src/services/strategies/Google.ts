@@ -6,7 +6,7 @@
 
 import { Strategy, StrategyOptionsWithRequest } from 'passport-google-oauth20';
 import IUserService from '../../interfaces/IUserService';
-import IUser, { FederatedAuthProfiles } from '../../interfaces/models/User';
+import IUser, { FederatedAuthProfiles, UserPictures } from '../../interfaces/models/User';
 import Locals from '../../providers/Locals';
 import userService from '../userService';
 
@@ -26,8 +26,6 @@ class Google {
 
 				} else {
 
-					console.log(profile)
-
 					const googleUserExist = await user.getUserByGoogle(profile.id)
 
 					if (googleUserExist) {
@@ -36,27 +34,25 @@ class Google {
 
 					const emailIsBusy = await user.verifyIfEmailExist(profile.emails[0].value)
 
-					if (emailIsBusy) {
+					if (emailIsBusy.exist) {
 						req.flash('errors', { msg: 'There is already an account using this email address. Sing in to that accoount and link it with Google manually from Account Settings.' });
 						return done(null);
 					}
 
-					const newUserProfileId = await user.createNewFederatedAuthProfiles(profile.provider, profile.id)
+					const newUserProfile = await user.createNewFederatedAuthProfiles(profile.provider, profile.id)
 
+					let userData: IUser = {
+						id: '',
+						email: profile.emails[0].value,
+						fullname: profile.displayName,
+						userName: '',
+						password: 'profile'
+					}
 
-					//let userData: IUser = {
-					//	email: profile.emails[0].value,
-					//	fullname:
-					//}
-					//let federated: FederatedAuthProfiles = {}
-					//
-					//user.email = profile.emails[0].value;
-					//user.google = profile.id;
-					//user.tokens.push({ kind: 'google', accessToken });
-					//user.fullname = user.fullname || profile.displayName;
-					//user.gender = user.gender || profile._json.gender;
-					//
-					//const createUser = await user.createNewUser(_email, _phoneNumber, _password, _fullName, _gender, _userName, null);
+					const createUser = await user.createNewUserFromGoogle(userData, newUserProfile.id);
+					console.log(createUser)
+					const newUserProfileImage = await user.createNewUserProfileImage(profile._json.picture, createUser.id)
+					console.log(newUserProfileImage)
 
 				}
 			});

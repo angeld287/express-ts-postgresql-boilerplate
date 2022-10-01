@@ -4,6 +4,8 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
+import IUser from "./models/User";
+
 export interface IUserService {
 
     validateUser(email: string, password: string): Promise<any>;
@@ -19,6 +21,8 @@ export interface IUserService {
     verifyIfUserNameExist(userName: string): Promise<any>;
 
     createNewUser(email: string, phoneNumber: string, userPassword: string, fullname: string, gender: string, userName: string, profile: number): Promise<any>;
+
+    createNewUserFromGoogle(user: IUser, profileId: number): Promise<any | ErrorConstructor>;
 
     getUserByGoogle(google: string): Promise<any | ErrorConstructor>;
 
