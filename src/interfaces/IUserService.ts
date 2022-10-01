@@ -21,6 +21,10 @@ export interface IUserService {
     createNewUser(email: string, phoneNumber: string, userPassword: string, fullname: string, gender: string, userName: string, profile: number): Promise<any>;
 
     getUserByGoogle(google: string): Promise<any | ErrorConstructor>;
+
+    createNewUserProfileImage(image_url: string, user_id: number): Promise<any | ErrorConstructor>;
+
+    createNewFederatedAuthProfiles(kind: string, profile_id: string): Promise<any | ErrorConstructor>;
 }
 
 export default IUserService;

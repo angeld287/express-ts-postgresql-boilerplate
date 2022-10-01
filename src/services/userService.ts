@@ -86,7 +86,7 @@ class userService implements IUserService {
 
     /*
     * Query to get user by google profile id
-    * @param email: the user email
+    * @param google: the user google profile id
     * @return User model with data
     */
     async getUserByGoogle(google: string): Promise<any | ErrorConstructor> {
@@ -195,6 +195,77 @@ class userService implements IUserService {
             name: 'create-new-user',
             text: 'INSERT INTO public.users(email, phone_number, user_password, fullname, gender, user_name, profile)VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id',
             values: [email, phoneNumber, userPassword, fullname, gender, userName, profile],
+        }
+
+        let result = null, client = null;
+        try {
+            client = await Database.getTransaction();
+
+            try {
+                result = await Database.sqlExecSingleRow(client, createTransaction);
+                await Database.commit(client);
+            } catch (error) {
+                await Database.rollback(client);
+                throw new Error(error);
+            }
+
+            return { created: true, id: result.rows[0].id };
+
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    /*
+    * Transaction to create a new user profile image
+    * @param image_url: the image url
+    * @param user_id: The is of the user to whom the image belongs
+    * @return : returns an object with the result
+    */
+    async createNewUserProfileImage(image_url: string, user_id: number): Promise<any | ErrorConstructor> {
+        const createTransaction = {
+            name: 'create-new-user-profile-image',
+            text: `INSERT INTO public.user_pictures(
+                    image_url, user_id)
+                    VALUES ($1, $2);
+            `,
+            values: [image_url, user_id],
+        }
+
+        let result = null, client = null;
+        try {
+            client = await Database.getTransaction();
+
+            try {
+                result = await Database.sqlExecSingleRow(client, createTransaction);
+                await Database.commit(client);
+            } catch (error) {
+                await Database.rollback(client);
+                throw new Error(error);
+            }
+
+            return { created: true, id: result.rows[0].id };
+
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    /*
+    * Transaction to create a new user profile image
+    * @param image_url: the image url
+    * @param user_id: The is of the user to whom the image belongs
+    * @return : returns an object with the result
+    */
+    async createNewFederatedAuthProfiles(kind: string, profile_id: string): Promise<any | ErrorConstructor> {
+        const createTransaction = {
+            name: 'create-new-user-federated-auth-profile',
+            text: `
+                    INSERT INTO public.federated_auth_profiles(
+                    kind, profile_id)
+                    VALUES ($1, $2);
+            `,
+            values: [kind, profile_id],
         }
 
         let result = null, client = null;

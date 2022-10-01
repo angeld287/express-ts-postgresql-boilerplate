@@ -41,6 +41,8 @@ class Google {
 						return done(null);
 					}
 
+					const newUserProfileId = await user.createNewFederatedAuthProfiles(profile.provider, profile.id)
+
 
 					//let userData: IUser = {
 					//	email: profile.emails[0].value,
