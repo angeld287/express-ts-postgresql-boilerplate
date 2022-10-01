@@ -22,12 +22,17 @@ class Locals {
         //allow origin cors
         const url = process.env.APP_URL || `http://localhost:${port}`;
 
+        const clientId = process.env.GOOGLE_ID || "123519622891-6eds7r9o2t43nfmg0mpgu4r7a9p28rip.apps.googleusercontent.com";
+        const clientSecret = process.env.GOOGLE_SECRET || "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";
+
         return {
             apiPrefix,
             appSecret,
             port,
             dbUrl: DATABASE_URL,
-            url
+            url,
+            clientId,
+            clientSecret
         }
     }
 

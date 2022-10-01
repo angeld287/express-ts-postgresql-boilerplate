@@ -8,6 +8,7 @@ import { Application } from 'express';
 import * as _passport from 'passport';
 
 import LocalStrategy from '../services/strategies/Local';
+import GoogleStrategy from '../services/strategies/Google';
 
 import Log from '../middlewares/Log';
 import IUserService from '../interfaces/IUserService';
@@ -46,6 +47,7 @@ class Passport {
 	public mountLocalStrategies(passport: _passport.PassportStatic): void {
 		try {
 			LocalStrategy.init(passport);
+			GoogleStrategy.init(passport);
 		} catch (_err: any) {
 			Log.error(_err.stack);
 		}
