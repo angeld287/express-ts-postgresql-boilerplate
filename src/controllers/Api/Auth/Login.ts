@@ -28,7 +28,7 @@ class Login {
         try {
             const errors = new ExpressValidator().validator(req);
             let user: IUserService = new userService();
-            console.log(req.body);
+
             if (!errors.isEmpty()) {
                 return new SuccessResponse('Success', {
                     errors: errors.array()

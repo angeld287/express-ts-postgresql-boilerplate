@@ -4,7 +4,6 @@
  * @author Angel Angeles <aangeles@litystyles.com>
  */
 
-import { SuccessResponse } from '../../core/ApiResponse';
 import { IRequest, IResponse } from '../../interfaces/vendors';
 import Log from '../../middlewares/Log';
 
@@ -16,9 +15,7 @@ class Logout {
 				Log.error(`Error : Failed to destroy the session during logout ` + err);
 			}
 
-			//req.logout();
 			req.user = null
-			req.flash('success', { msg: 'The session has been closed successfully' });
 			return res.redirect('/');
 		});
 	}
