@@ -110,6 +110,30 @@ class userService implements IUserService {
     }
 
     /*
+    * Query to verify if user is created from google
+    * @param email: the user email
+    * @return User model with data
+    */
+    async checkIfUserComesFromGoogle(email: string): Promise<any | ErrorConstructor> {
+        const getQuery = {
+            name: 'fetch-user-by-google',
+            text: `	select * from public.users u 
+	                left outer join public.federated_auth_profiles f on u.profile = f.id
+	                where f.kind = 'google' and u.email = $1
+            `,
+            values: [email],
+        }
+        let result = null;
+        try {
+            result = await Database.sqlToDB(getQuery);
+
+            return result.rows.length > 0
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    /*
     * Query to verify if Email is in the database
     * @param email: email of the user
     * @return : returns an object with the result

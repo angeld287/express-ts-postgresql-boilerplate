@@ -29,6 +29,8 @@ export interface IUserService {
     createNewUserProfileImage(image_url: string, user_id: number): Promise<any | ErrorConstructor>;
 
     createNewFederatedAuthProfiles(kind: string, profile_id: string): Promise<any | ErrorConstructor>;
+
+    checkIfUserComesFromGoogle(email: string): Promise<any | ErrorConstructor>;
 }
 
 export default IUserService;

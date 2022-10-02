@@ -39,7 +39,22 @@ class Login {
             const _password = Encryptions.hash(req.body.password);
             req.body.password = _password;
 
-            const _user = await user.validateUser(_username, _password);
+
+            const userVerifications: Array<any> = await Promise.all(
+                [
+                    user.checkIfUserComesFromGoogle(_username),
+                    user.validateUser(_username, _password),
+                ]
+            );
+
+            if (userVerifications[0]) {
+                return new SuccessResponse('Success', {
+                    error: true,
+                    message: 'User exist in the sistem as created from Google. Please login with google.',
+                }).send(res);
+            }
+
+            const _user = userVerifications[1];
 
             if (_user === false) {
 

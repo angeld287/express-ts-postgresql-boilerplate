@@ -46,7 +46,7 @@ class Google {
 						email: profile.emails[0].value,
 						fullname: profile.displayName,
 						userName: '',
-						password: 'profile'
+						password: 'google'
 					}
 
 					const createUser = await user.createNewUserFromGoogle(userData, newUserProfile.id);
