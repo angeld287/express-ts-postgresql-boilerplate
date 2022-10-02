@@ -115,7 +115,7 @@ class userService implements IUserService {
     * @param userId: the user id
     * @return User model with data
     */
-    async getUserRoles(userId: number): Promise<boolean | ErrorConstructor | Array<UserRole>> {
+    async getUserRoles(userId: number): Promise<Array<UserRole>> {
         const getQuery = {
             name: 'fetch-user-roles',
             text: `
@@ -128,22 +128,19 @@ class userService implements IUserService {
         let result = null;
         try {
             result = await Database.sqlToDB(getQuery);
-            if (result.rows.length > 0) {
-                const roles: Array<UserRole> = []
 
-                result.rows.forEach(role => {
-                    roles.push({
-                        id: role.id,
-                        roleId: role.role_id,
-                        roleName: role.role_name,
-                        userId: role.user_id,
-                    })
-                });
+            const roles: Array<UserRole> = []
 
-                return roles;
-            } else {
-                return false;
-            }
+            result.rows.forEach(role => {
+                roles.push({
+                    id: role.id,
+                    roleId: role.role_id,
+                    roleName: role.role_name,
+                    userId: role.user_id,
+                })
+            });
+
+            return roles;
         } catch (error) {
             throw new Error(error.message);
         }
@@ -154,7 +151,7 @@ class userService implements IUserService {
     * @param google: the user google profile id
     * @return User model with data
     */
-    async getUserByGoogle(google: string): Promise<any | ErrorConstructor> {
+    async getUserByGoogle(google: string): Promise<boolean | ErrorConstructor | IUser> {
         const getQuery = {
             name: 'fetch-user-by-google',
             text: `	select u.*, f.id as f_id, f.kind, f.profile_id from public.users u 
@@ -166,8 +163,22 @@ class userService implements IUserService {
         let result = null;
         try {
             result = await Database.sqlToDB(getQuery);
+            const dbUser = result.rows[0];
 
-            return result.rows.length > 0 ? result.rows[0] : false
+            return result.rows.length > 0 ? {
+                id: dbUser.id,
+                email: dbUser.email,
+                phoneNumber: dbUser.phone_number,
+                profile: {
+                    id: dbUser.f_id,
+                    kind: dbUser.kind,
+                    profileId: dbUser.profile_id,
+                },
+                roles: await this.getUserRoles(dbUser.id),
+                fullname: dbUser.fullname,
+                gender: dbUser.gender,
+                userName: dbUser.user_name,
+            } : false
         } catch (error) {
             throw new Error(error.message);
         }

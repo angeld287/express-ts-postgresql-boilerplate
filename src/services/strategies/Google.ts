@@ -6,7 +6,7 @@
 
 import { Strategy, StrategyOptionsWithRequest } from 'passport-google-oauth20';
 import IUserService from '../../interfaces/IUserService';
-import IUser, { FederatedAuthProfiles, UserPictures } from '../../interfaces/models/User';
+import IUser, { FederatedAuthProfiles, UserPictures, UserRole } from '../../interfaces/models/User';
 import Locals from '../../providers/Locals';
 import userService from '../userService';
 
@@ -23,7 +23,7 @@ class Google {
 
 			const _strategy: Strategy = new Strategy(options, async (req: any, accessToken: any, refreshToken: any, profile: any, done: any) => {
 
-				let googleUserExist = await user.getUserByGoogle(profile.id)
+				let googleUserExist: IUser | boolean = await user.getUserByGoogle(profile.id)
 
 				if (googleUserExist !== false) {
 					return done(null, googleUserExist);

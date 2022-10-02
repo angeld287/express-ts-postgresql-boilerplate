@@ -16,7 +16,7 @@ export interface IUser extends Express.User {
 
     tokens?: Tokens[];
     profile?: FederatedAuthProfiles;
-    pictures?: UserPictures[];
+    pictures?: Array<UserPictures>;
     roles: Array<UserRole>;
 
     fullname: string;
