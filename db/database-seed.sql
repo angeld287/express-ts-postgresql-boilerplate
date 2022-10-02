@@ -71,6 +71,51 @@ ALTER TABLE IF EXISTS public.tokens
     OWNER to admin;
 
 
+-- Table: public.roles
+
+-- DROP TABLE IF EXISTS public.roles;
+
+CREATE TABLE IF NOT EXISTS public.roles
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    role_name character(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT roles_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.roles
+    OWNER to admin;
+
+
+-- Table: public.user_roles
+
+-- DROP TABLE IF EXISTS public.user_roles;
+
+CREATE TABLE IF NOT EXISTS public.user_roles
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    user_id integer NOT NULL,
+    role_id integer NOT NULL,
+    CONSTRAINT user_roles_pkey PRIMARY KEY (id),
+    CONSTRAINT user_roles_user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES public.users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT user_roles_role_id_fkey FOREIGN KEY (role_id)
+        REFERENCES public.roles (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.user_roles
+    OWNER to admin;
+
+
 -- Table: public.user_pictures
 
 -- DROP TABLE IF EXISTS public.user_pictures;

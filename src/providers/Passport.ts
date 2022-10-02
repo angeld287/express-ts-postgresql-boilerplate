@@ -72,6 +72,18 @@ class Passport {
 			return res.redirect(`/auth/${provider}`);
 		}
 	}
+
+	public isCustomer(req: IRequest, res: IResponse, next: any): any {
+		const provider = req.path.split('/').slice(-1)[0];
+		const token = req.session.passport.user.tokens?.find(token => token.kind === provider);
+		console.log(token)
+		//if (token) {
+		//	return next();
+		//} else {
+		//	return res.redirect(`/auth/${provider}`);
+		//}
+		return next();
+	}
 }
 
 export default new Passport;

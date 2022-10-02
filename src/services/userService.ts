@@ -85,6 +85,31 @@ class userService implements IUserService {
         }
     }
 
+
+    /*
+    * Query to get the role object
+    * @param roleName: the 
+    * @return User model with data
+    */
+    async getRoleByName(roleName: string): Promise<any | ErrorConstructor> {
+        const getQuery = {
+            name: 'fetch-role-by-name',
+            text: 'select * from public.roles where role_name = $1',
+            values: [roleName],
+        }
+        let result = null;
+        try {
+            result = await Database.sqlToDB(getQuery);
+            if (result.rows.length > 0) {
+                return result.rows[0];
+            } else {
+                return false;
+            }
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
     /*
     * Query to get user by google profile id
     * @param google: the user google profile id
@@ -327,6 +352,44 @@ class userService implements IUserService {
                     RETURNING id;
             `,
             values: [kind, profile_id],
+        }
+
+        let result = null, client = null;
+        try {
+            client = await Database.getTransaction();
+
+            try {
+                result = await Database.sqlExecSingleRow(client, createTransaction);
+                await Database.commit(client);
+            } catch (error) {
+                await Database.rollback(client);
+                throw new Error(error);
+            }
+
+            return { created: true, id: result.rows[0].id };
+
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    /*
+    * Transaction to asociate user to a role
+    * @param user_id: the user id
+    * @param role_id: the role id
+    * @return : returns an object with the result
+    */
+    async addUserToRole(userId: number, roleName: string): Promise<any | ErrorConstructor> {
+        const role = await this.getRoleByName(roleName);
+        const createTransaction = {
+            name: 'add-user-to-role',
+            text: `
+                    INSERT INTO public.user_roles(
+	                user_id, role_id)
+	                VALUES ($1, $2)
+                    RETURNING id;
+            `,
+            values: [userId, role.id],
         }
 
         let result = null, client = null;
