@@ -43,11 +43,13 @@ class Google {
 					email: profile.emails[0].value,
 					fullname: profile.displayName,
 					userName: '',
-					password: 'google'
+					password: 'google',
+					roles: []
 				}
 
 				const createUser = await user.createNewUserFromGoogle(userData, newUserProfile.id);
 				await user.createNewUserProfileImage(profile._json.picture, createUser.id)
+				await user.addUserToRole(createUser.id, 'customer')
 
 				googleUserExist = await user.getUserByGoogle(profile.id)
 

@@ -7,7 +7,7 @@
 import Encryptions from '../../../providers/Encryptions'
 
 import Log from '../../../middlewares/Log';
-import IUser from "../../../interfaces/models/User";
+import IUser, { UserRole } from "../../../interfaces/models/User";
 import IUserService from "../../../interfaces/IUserService";
 import userService from '../../../services/userService';
 var passport = require('passport');
@@ -66,6 +66,8 @@ class Login {
 
             Log.info(`New user logged ` + _username);
 
+            const userRoles: Array<UserRole> = await user.getUserRoles(_user.id)
+
             let userObject: IUser = {
                 id: _user.id,
                 email: _user.email,
@@ -76,6 +78,7 @@ class Login {
                 gender: _user.gender,
                 profile: _user.profile,
                 userName: _user.user_name,
+                roles: userRoles
             };
 
             passport.authenticate('local', (err: any, user: any, info: any) => {

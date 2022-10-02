@@ -77,6 +77,7 @@ class Login {
                 gender: _user.gender,
                 profile: _user.profile,
                 userName: _user.user_name,
+                roles: []
             };
 
             passport.authenticate('local', (err: any, user: any, info: any) => {

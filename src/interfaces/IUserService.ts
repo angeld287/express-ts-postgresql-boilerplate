@@ -31,6 +31,12 @@ export interface IUserService {
     createNewFederatedAuthProfiles(kind: string, profile_id: string): Promise<any | ErrorConstructor>;
 
     checkIfUserComesFromGoogle(email: string): Promise<any | ErrorConstructor>;
+
+    addUserToRole(userId: number, roleName: string): Promise<any | ErrorConstructor>;
+
+    getRoleByName(roleName: string): Promise<any | ErrorConstructor>;
+
+    getUserRoles(userId: number): Promise<any | ErrorConstructor>;
 }
 
 export default IUserService;

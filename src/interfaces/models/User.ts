@@ -17,6 +17,7 @@ export interface IUser extends Express.User {
     tokens?: Tokens[];
     profile?: FederatedAuthProfiles;
     pictures?: UserPictures[];
+    roles: Array<UserRole>;
 
     fullname: string;
     gender?: string;
@@ -39,6 +40,13 @@ export interface FederatedAuthProfiles {
 export interface UserPictures {
     id: string;
     imageUrl: string;
+}
+
+export interface UserRole {
+    id: number;
+    userId: number;
+    roleId: number;
+    roleName: string;
 }
 
 export default IUser;

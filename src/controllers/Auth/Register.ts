@@ -62,6 +62,8 @@ class Register {
 
             const createUser = await user.createNewUser(_email, _phoneNumber, _password, _fullName, _gender, _userName, null);
 
+            await user.addUserToRole(createUser.id, 'customer')
+
             if (createUser.created) {
                 Log.info(`New user created ` + _userName);
                 req.flash('success', { msg: 'The user has been created successfully' });

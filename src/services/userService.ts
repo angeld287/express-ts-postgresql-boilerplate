@@ -7,7 +7,7 @@
 import Database from '../providers/Database';
 import { IUserService } from '../interfaces/IUserService';
 import { IUserExistenceVerificationResponse } from '../interfaces/response/UserResponses';
-import IUser from '../interfaces/models/User';
+import IUser, { UserRole } from '../interfaces/models/User';
 
 class userService implements IUserService {
 
@@ -102,6 +102,45 @@ class userService implements IUserService {
             result = await Database.sqlToDB(getQuery);
             if (result.rows.length > 0) {
                 return result.rows[0];
+            } else {
+                return false;
+            }
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    /*
+    * Query to get user roles
+    * @param userId: the user id
+    * @return User model with data
+    */
+    async getUserRoles(userId: number): Promise<boolean | ErrorConstructor | Array<UserRole>> {
+        const getQuery = {
+            name: 'fetch-user-roles',
+            text: `
+                select ur.*, r.role_name from public.user_roles ur
+                left outer join roles r on ur.role_id = r.id
+                where user_id = $1
+            `,
+            values: [userId],
+        }
+        let result = null;
+        try {
+            result = await Database.sqlToDB(getQuery);
+            if (result.rows.length > 0) {
+                const roles: Array<UserRole> = []
+
+                result.rows.forEach(role => {
+                    roles.push({
+                        id: role.id,
+                        roleId: role.role_id,
+                        roleName: role.role_name,
+                        userId: role.user_id,
+                    })
+                });
+
+                return roles;
             } else {
                 return false;
             }
