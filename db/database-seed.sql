@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS public.users
     password_reset_token character(100) COLLATE pg_catalog."default",
     password_reset_expires date,
     fullname character(100) COLLATE pg_catalog."default" NOT NULL,
-    gender character(50) COLLATE pg_catalog."default",
+    gender character(1) COLLATE pg_catalog."default",
     profile integer,
     user_name character(100) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT users_pkey PRIMARY KEY (id),

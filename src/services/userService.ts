@@ -93,7 +93,7 @@ class userService implements IUserService {
     async getUserByGoogle(google: string): Promise<any | ErrorConstructor> {
         const getQuery = {
             name: 'fetch-user-by-google',
-            text: `	select * from public.users u 
+            text: `	select u.*, f.id as f_id, f.kind, f.profile_id from public.users u 
                     left outer join public.federated_auth_profiles f on u.profile = f.id
                     where f.kind = 'google' and f.profile_id = $1
             `,
@@ -103,7 +103,7 @@ class userService implements IUserService {
         try {
             result = await Database.sqlToDB(getQuery);
 
-            return result.rows.length > 0
+            return result.rows.length > 0 ? result.rows[0] : false
         } catch (error) {
             throw new Error(error.message);
         }
@@ -117,7 +117,7 @@ class userService implements IUserService {
     async checkIfUserComesFromGoogle(email: string): Promise<any | ErrorConstructor> {
         const getQuery = {
             name: 'fetch-user-by-google',
-            text: `	select * from public.users u 
+            text: `	select u.*, f.id as f_id, f.kind, f.profile_id from public.users u 
 	                left outer join public.federated_auth_profiles f on u.profile = f.id
 	                where f.kind = 'google' and u.email = $1
             `,

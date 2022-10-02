@@ -22,39 +22,36 @@ class Google {
 			}
 
 			const _strategy: Strategy = new Strategy(options, async (req: any, accessToken: any, refreshToken: any, profile: any, done: any) => {
-				if (req.user) {
 
-				} else {
+				let googleUserExist = await user.getUserByGoogle(profile.id)
 
-					const googleUserExist = await user.getUserByGoogle(profile.id)
-
-					if (googleUserExist) {
-						return done(null, googleUserExist);
-					}
-
-					const emailIsBusy = await user.verifyIfEmailExist(profile.emails[0].value)
-
-					if (emailIsBusy.exist) {
-						req.flash('errors', { msg: 'There is already an account using this email address. Sing in to that accoount and link it with Google manually from Account Settings.' });
-						return done(null);
-					}
-
-					const newUserProfile = await user.createNewFederatedAuthProfiles(profile.provider, profile.id)
-
-					let userData: IUser = {
-						id: '',
-						email: profile.emails[0].value,
-						fullname: profile.displayName,
-						userName: '',
-						password: 'google'
-					}
-
-					const createUser = await user.createNewUserFromGoogle(userData, newUserProfile.id);
-					console.log(createUser)
-					const newUserProfileImage = await user.createNewUserProfileImage(profile._json.picture, createUser.id)
-					console.log(newUserProfileImage)
-
+				if (googleUserExist !== false) {
+					return done(null, googleUserExist);
 				}
+
+				const emailIsBusy = await user.verifyIfEmailExist(profile.emails[0].value)
+
+				if (emailIsBusy.exist) {
+					req.flash('errors', { msg: 'There is already an account using this email address. Sing in to that accoount and link it with Google manually from Account Settings.' });
+					return done(null);
+				}
+
+				const newUserProfile = await user.createNewFederatedAuthProfiles(profile.provider, profile.id)
+
+				let userData: IUser = {
+					id: '',
+					email: profile.emails[0].value,
+					fullname: profile.displayName,
+					userName: '',
+					password: 'google'
+				}
+
+				const createUser = await user.createNewUserFromGoogle(userData, newUserProfile.id);
+				await user.createNewUserProfileImage(profile._json.picture, createUser.id)
+
+				googleUserExist = await user.getUserByGoogle(profile.id)
+
+				return done(null, googleUserExist)
 			});
 
 			_passport.use(_strategy);
