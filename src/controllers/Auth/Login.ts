@@ -82,8 +82,6 @@ class Login {
                 roles: userRoles
             };
 
-            console.log(userObject)
-
             passport.authenticate('local', (err: any, user: any, info: any) => {
 
                 Log.info('Here in the login controller #2!');

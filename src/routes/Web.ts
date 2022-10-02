@@ -57,7 +57,11 @@ router.post(
 
 router.get('/logout', LogoutController.perform);
 
-router.get('/account', Passport.isAuthenticated, AccountController.index);
+router.get(
+    '/account',
+    Passport.isAuthenticated,
+    Passport.isCustomer,
+    AccountController.index);
 
 router.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'], failureRedirect: '/login' }));
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), SocialController.googleCallback);

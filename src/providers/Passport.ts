@@ -15,6 +15,7 @@ import IUserService from '../interfaces/IUserService';
 import userService from '../services/userService';
 import { IRequest, IResponse } from '../interfaces/vendors';
 import { AuthFailureResponse } from '../core/ApiResponse';
+import { UserRole } from '../interfaces/models/User';
 
 class Passport {
 
@@ -74,14 +75,18 @@ class Passport {
 	}
 
 	public isCustomer(req: IRequest, res: IResponse, next: any): any {
-		const provider = req.path.split('/').slice(-1)[0];
-		const token = req.session.passport.user.tokens?.find(token => token.kind === provider);
-		console.log(token)
-		//if (token) {
-		//	return next();
-		//} else {
-		//	return res.redirect(`/auth/${provider}`);
-		//}
+		const roles: Array<UserRole> = req.session.passport.user.roles;
+		if (roles.length > 0) {
+			if (roles.filter(role => role.roleName === 'customer').length <= 0) {
+				return new AuthFailureResponse('Fail', {
+					message: 'You are not autorized to use this role!',
+				}).send(res);
+			}
+		} else {
+			return new AuthFailureResponse('Fail', {
+				message: 'You are not autorized to use this role!',
+			}).send(res);
+		}
 		return next();
 	}
 }
