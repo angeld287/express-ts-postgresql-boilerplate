@@ -33,7 +33,6 @@ class Passport {
 
 		localPassport.deserializeUser<any, any>((req, sessionData, done) => {
 			_user.getUserById(sessionData.id).then(u => {
-				console.log('u: ', u)
 				done(null, u);
 			}).catch(e => {
 				done(e, null);

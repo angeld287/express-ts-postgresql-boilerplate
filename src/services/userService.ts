@@ -116,7 +116,7 @@ class userService implements IUserService {
     */
     async checkIfUserComesFromGoogle(email: string): Promise<any | ErrorConstructor> {
         const getQuery = {
-            name: 'fetch-user-by-google',
+            name: 'fetch-user-by-google-and-email',
             text: `	select u.*, f.id as f_id, f.kind, f.profile_id from public.users u 
 	                left outer join public.federated_auth_profiles f on u.profile = f.id
 	                where f.kind = 'google' and u.email = $1
